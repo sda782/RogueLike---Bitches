@@ -16,7 +16,7 @@ public class ItemManager : MonoBehaviour
     }
     public static List<Item> GetAllItems()
     {
-        return new List<Item>(itemIndex);
+        return itemIndex;
     }
     public static Item GetItemById(int id)
     {

@@ -1,61 +1,56 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
-    private List<Item> bag;
+    private List<GameObject> bag;
     private Dictionary<string, Item> equiped;
     [SerializeField]
-    private GameObject panel_bag;
-    [SerializeField]
-    private GameObject panel_equiped;
+    private GameObject bag_container;
     [SerializeField]
     private GameObject img_pre;
+    [SerializeField]
+    private GameObject panel_inventory;
 
     void Awake()
     {
-        bag = new List<Item>();
+        bag = new List<GameObject>();
         equiped = new Dictionary<string, Item>();
-        panel_bag.SetActive(false);
-        panel_equiped.SetActive(false);
-        bag = ItemManager.GetAllItems();
+        panel_inventory.SetActive(false);
     }
     void Start()
     {
-        bag.Add(ItemManager.GetItemById(0));
-        bag.Add(ItemManager.GetItemById(0));
-        bag.Add(ItemManager.GetItemById(0));
-        bag.Add(ItemManager.GetItemById(0));
-        bag.Add(ItemManager.GetItemById(1));
-        bag.Add(ItemManager.GetItemById(1));
-        bag.Add(ItemManager.GetItemById(2));
-        bag.Add(ItemManager.GetItemById(2));
-        bag.Add(ItemManager.GetItemById(2));
-        bag.Add(ItemManager.GetItemById(2));
+        addToInventory(0);
+        addToInventory(1);
+        addToInventory(0);
+        addToInventory(2);
+        addToInventory(0);
+        addToInventory(1);
+        addToInventory(1);
+        addToInventory(1);
+    }
+    private void addToInventory(int id)
+    {
+        GameObject item = Instantiate(img_pre, bag_container.transform);
+        Item i = ItemManager.GetItemById(id);
+        item.name = i.Id.ToString();
+        item.GetComponent<Image>().sprite = i.Sprite;
+        bag.Add(item);
     }
     public void ToggleInventory()
     {
-        panel_bag.SetActive(!panel_bag.activeSelf);
-        panel_equiped.SetActive(!panel_equiped.activeSelf);
-        if (panel_bag.activeSelf) UpdateInventoryView();
+        panel_inventory.SetActive(!panel_inventory.activeSelf);
     }
-    public void UpdateInventoryView()
+    public static void ShowInfo(GameObject obj)
     {
-        GameObject container = panel_bag.transform.GetChild(1).gameObject;
-        if (container.transform.childCount > 0)
-        {
-            foreach (var item in container.transform.GetComponentsInChildren<GameObject>())
-            {
-                Destroy(item);
-            }
-        }
-        foreach (var item in bag)
-        {
-            GameObject itemimg = Instantiate(img_pre, container.transform);
-            itemimg.GetComponent<Image>().sprite = item.Sprite;
-        }
+        Item i = ItemManager.GetItemById(int.Parse(obj.name));
+        GameObject.Find("InfoText").GetComponent<Text>().text = i.Name;
+        GameObject.Find("InfoSprite").GetComponent<Image>().sprite = i.Sprite;
     }
 }
