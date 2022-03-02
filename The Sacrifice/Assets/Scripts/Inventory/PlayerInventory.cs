@@ -1,11 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
@@ -15,7 +11,9 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField]
     private GameObject bag_container;
     [SerializeField]
-    private GameObject img_pre;
+    private GameObject item_pre;
+    [SerializeField]
+    private GameObject world_item_pre;
     [SerializeField]
     private GameObject panel_inventory;
     private static GameObject panel_showinfo;
@@ -30,18 +28,28 @@ public class PlayerInventory : MonoBehaviour
         panel_showinfo = GameObject.Find("ItemInfo");
         panel_showinfo.SetActive(false);
         panel_inventory.SetActive(false);
+        playerPos = GameObject.Find("Player").transform;
     }
     public void addToInventory(int id)
     {
-        GameObject item = Instantiate(img_pre, bag_container.transform);
+        GameObject item = Instantiate(item_pre, bag_container.transform);
         Item i = ItemManager.GetItemById(id);
-        item.name = i.Id.ToString();
+        item.name = "i_" + i.Id.ToString();
         item.GetComponent<Image>().sprite = i.Sprite;
         bag.Add(item);
     }
-    public void RemoveFromInventory()
+
+    public void DropItem()
     {
         if (currentSelected == null) return;
+        GameObject worldItem = Instantiate(world_item_pre, playerPos);
+        worldItem.name = currentSelected.name;
+        worldItem.GetComponent<SpriteRenderer>().sprite = ItemManager.GetItemById(int.Parse(currentSelected.name.Substring(2))).Sprite;
+        worldItem.transform.SetParent(GameObject.Find("ItemContainer").transform);
+        RemoveFromInventory();
+    }
+    public void RemoveFromInventory()
+    {
         Destroy(bag.Find(g => g == currentSelected));
         panel_showinfo.SetActive(false);
     }
@@ -53,7 +61,7 @@ public class PlayerInventory : MonoBehaviour
     public static void ShowInfo(GameObject obj)
     {
         panel_showinfo.SetActive(true);
-        Item i = ItemManager.GetItemById(int.Parse(obj.name));
+        Item i = ItemManager.GetItemById(int.Parse(obj.name.Substring(2)));
         GameObject.Find("InfoText").GetComponent<Text>().text = i.Name;
         GameObject.Find("InfoSprite").GetComponent<Image>().sprite = i.Sprite;
         currentSelected = obj;
