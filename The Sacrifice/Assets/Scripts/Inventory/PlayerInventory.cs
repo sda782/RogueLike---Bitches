@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -19,6 +20,8 @@ public class PlayerInventory : MonoBehaviour
     private GameObject panel_inventory;
     private static GameObject panel_showinfo;
     private static GameObject currentSelected = null;
+    [SerializeField]
+    private Transform playerPos;
 
     void Awake()
     {
@@ -28,18 +31,7 @@ public class PlayerInventory : MonoBehaviour
         panel_showinfo.SetActive(false);
         panel_inventory.SetActive(false);
     }
-    void Start()
-    {
-        addToInventory(0);
-        addToInventory(1);
-        addToInventory(0);
-        addToInventory(2);
-        addToInventory(0);
-        addToInventory(1);
-        addToInventory(1);
-        addToInventory(1);
-    }
-    private void addToInventory(int id)
+    public void addToInventory(int id)
     {
         GameObject item = Instantiate(img_pre, bag_container.transform);
         Item i = ItemManager.GetItemById(id);
@@ -49,7 +41,6 @@ public class PlayerInventory : MonoBehaviour
     }
     public void RemoveFromInventory()
     {
-        Debug.Log("Clicked");
         if (currentSelected == null) return;
         Destroy(bag.Find(g => g == currentSelected));
         panel_showinfo.SetActive(false);
