@@ -10,9 +10,9 @@ public class ItemManager : MonoBehaviour
     void Awake()
     {
         itemIndex = new List<Item>();
-        itemIndex.Add(new Item(nextId++, "name0", 0, null, true));
-        itemIndex.Add(new Item(nextId++, "name1", 0, null, true));
-        itemIndex.Add(new Item(nextId++, "name2", 0, null, true));
+        itemIndex.Add(new Item(nextId++, "A fools sword", 0, null, true));
+        itemIndex.Add(new Item(nextId++, "Apprentice hammer", 0, null, true));
+        itemIndex.Add(new Item(nextId++, "The elder bow", 0, null, true));
     }
     public static List<Item> GetAllItems()
     {
