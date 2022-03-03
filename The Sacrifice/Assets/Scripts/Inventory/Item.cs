@@ -1,20 +1,15 @@
+using System;
 using UnityEngine;
-
+[System.Serializable]
 public class Item
 {
-    public Item(int id, string name, int rarity, Sprite sprite, bool equipable)
+    public int Id;
+    public string Name;
+    public int Rarity;
+    public Sprite Sprite;
+    public bool Equipable;
+    public void SetSprite()
     {
-        Id = id;
-        Name = name;
-        Rarity = rarity;
-        Sprite = sprite;
-        Equipable = equipable;
-        Sprite = Resources.Load<Sprite>("Sprites/Items/i_" + id);
+        Sprite = Resources.Load<Sprite>("Sprites/Items/i_" + Name);
     }
-
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public int Rarity { get; set; }
-    public Sprite Sprite { get; set; }
-    public bool Equipable { get; set; }
 }

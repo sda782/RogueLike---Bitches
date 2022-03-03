@@ -30,11 +30,11 @@ public class PlayerInventory : MonoBehaviour
         panel_inventory.SetActive(false);
         playerPos = GameObject.Find("Player").transform;
     }
-    public void addToInventory(int id)
+    public void addToInventory(string name)
     {
         GameObject item = Instantiate(item_pre, bag_container.transform);
-        Item i = ItemManager.GetItemById(id);
-        item.name = "i_" + i.Id.ToString();
+        Item i = ItemManager.GetItemByName(name);
+        item.name = "i_" + i.Name;
         item.GetComponent<Image>().sprite = i.Sprite;
         bag.Add(item);
     }
@@ -44,7 +44,7 @@ public class PlayerInventory : MonoBehaviour
         if (currentSelected == null) return;
         GameObject worldItem = Instantiate(world_item_pre, playerPos);
         worldItem.name = currentSelected.name;
-        worldItem.GetComponent<SpriteRenderer>().sprite = ItemManager.GetItemById(int.Parse(currentSelected.name.Substring(2))).Sprite;
+        worldItem.GetComponent<SpriteRenderer>().sprite = ItemManager.GetItemByName(currentSelected.name.Substring(2)).Sprite;
         worldItem.transform.SetParent(GameObject.Find("ItemContainer").transform);
         RemoveFromInventory();
     }
@@ -61,7 +61,7 @@ public class PlayerInventory : MonoBehaviour
     public static void ShowInfo(GameObject obj)
     {
         panel_showinfo.SetActive(true);
-        Item i = ItemManager.GetItemById(int.Parse(obj.name.Substring(2)));
+        Item i = ItemManager.GetItemByName(obj.name.Substring(2));
         GameObject.Find("InfoText").GetComponent<Text>().text = i.Name;
         GameObject.Find("InfoSprite").GetComponent<Image>().sprite = i.Sprite;
         currentSelected = obj;

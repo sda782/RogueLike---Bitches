@@ -19,8 +19,7 @@ public class Controller : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                string idStr = item.name.Substring(2);
-                inventory.addToInventory(int.Parse(idStr));
+                inventory.addToInventory(item.name.Substring(2));
                 Destroy(item);
             }
         }

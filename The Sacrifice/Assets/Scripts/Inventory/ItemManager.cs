@@ -1,6 +1,5 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ItemManager : MonoBehaviour
@@ -10,16 +9,27 @@ public class ItemManager : MonoBehaviour
     void Awake()
     {
         itemIndex = new List<Item>();
-        itemIndex.Add(new Item(nextId++, "A fools sword", 0, null, true));
-        itemIndex.Add(new Item(nextId++, "Apprentice hammer", 0, null, true));
-        itemIndex.Add(new Item(nextId++, "The elder bow", 0, null, true));
+        getItemsFromJson();
+
     }
     public static List<Item> GetAllItems()
     {
         return itemIndex;
     }
-    public static Item GetItemById(int id)
+    public static Item GetItemByName(string name)
     {
-        return itemIndex.Find(i => i.Id == id);
+        return itemIndex.Find(i => i.Name == name);
+    }
+    private static void getItemsFromJson()
+    {
+        string jsonstring = Resources.Load<TextAsset>("items").text;
+        Items items = (Items)JsonUtility.FromJson(jsonstring, typeof(Items));
+        itemIndex = items.items;
+        foreach (var item in itemIndex)
+        {
+            item.Id = nextId++;
+            item.SetSprite();
+        }
+        Debug.Log("Loaded " + items.items.Count + " items from file");
     }
 }
