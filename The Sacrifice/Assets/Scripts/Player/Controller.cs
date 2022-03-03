@@ -6,31 +6,33 @@ public class Controller : MonoBehaviour
 {
 
     private PlayerInventory inventory;
-    private bool canPickUpItems;
-    private GameObject item;
+    private List<GameObject> items;
     void Start()
     {
+        items = new List<GameObject>();
         inventory = GameObject.Find("InvetoryManager").GetComponent<PlayerInventory>();
-        canPickUpItems = false;
     }
-    void Update()
+
+    public void PickUp()
     {
-        if (canPickUpItems && item != null)
+        if (items.Count > 0)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                inventory.addToInventory(item.name.Substring(2));
-                Destroy(item);
+                GameObject i = items[0];
+                inventory.addToInventory(i.name.Substring(2));
+                items.Remove(i);
+                Destroy(i);
             }
         }
     }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         switch (col.tag.ToLower())
         {
             case "item":
-                canPickUpItems = true;
-                item = col.gameObject;
+                items.Add(col.gameObject);
                 break;
         }
     }
@@ -39,8 +41,7 @@ public class Controller : MonoBehaviour
         switch (col.tag.ToLower())
         {
             case "item":
-                canPickUpItems = false;
-                item = null;
+                items.Remove(col.gameObject);
                 break;
         }
     }
