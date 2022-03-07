@@ -1,0 +1,19 @@
+{
+    "items": [
+        {
+            "Name": "A fools sword",
+            "Rarity": 0,
+            "Equipable": true
+        },
+        {
+            "Name": "Apprentice hammer",
+            "Rarity": 1,
+            "Equipable": true
+        },
+        {
+            "Name": "The elder bow",
+            "Rarity": 0,
+            "Equipable": true
+        }
+    ]
+}
