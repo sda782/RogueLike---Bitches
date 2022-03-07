@@ -13,12 +13,13 @@ public class IdleBehavior : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
-        timer = idleTime;
+        timer = Random.Range(idleTime-0.5f, idleTime+0.5f);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        timer -= Time.deltaTime;
        if (Vector2.Distance(playerPosition.position, animator.transform.position) <= chaseDistanceStart) 
        {
            animator.SetBool("isChasing", true);

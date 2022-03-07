@@ -7,21 +7,24 @@ public class WanderBehavior : StateMachineBehaviour
     private Transform playerPosition;
     public float wanderSpeed;
     public float chaseDistanceStart;
+    private Vector3 target;
+    private float Distance;
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
+        playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
+        float x = Random.Range(-1, 2);
+        float y = Random.Range(-1, 2);
+        float walktime = Random.Range(1, 2);
+        Distance = wanderSpeed * walktime;
+        target = animator.transform.position + new Vector3(x, y, 0);
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        float x = Random.Range(-1, 1);
-        float y = Random.Range(-1, 1);
-        float walktime = Random.Range(1, 2);
-        float Distance = wanderSpeed * walktime;
-        Vector3 target = new Vector2(x, y);
-        animator.transform.position = Vector3.MoveTowards(animator.transform.position, target, Distance);
+        animator.transform.position = Vector3.MoveTowards(animator.transform.position, target, Distance * Time.deltaTime);
+        //animator.transform.position += new Vector3(x, y, 0);
 
         if (Vector2.Distance(playerPosition.position, animator.transform.position) <= chaseDistanceStart) 
        {
