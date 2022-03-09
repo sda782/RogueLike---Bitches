@@ -28,5 +28,6 @@ public class LootManager : MonoBehaviour
         worldItem.name = "i_" + itemsFromType[0].Name;
         worldItem.GetComponent<SpriteRenderer>().sprite = itemsFromType[0].Sprite;
         worldItem.transform.SetParent(GameObject.Find("ItemContainer").transform);
+        worldItem.AddComponent<AnimateLootDrop>();
     }
 }
