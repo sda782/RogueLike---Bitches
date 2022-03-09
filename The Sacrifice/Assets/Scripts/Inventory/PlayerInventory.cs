@@ -62,7 +62,7 @@ public class PlayerInventory : MonoBehaviour
     {
         panel_showinfo.SetActive(true);
         Item i = ItemManager.GetItemByName(obj.name.Substring(2));
-        GameObject.Find("InfoText").GetComponent<Text>().text = i.Name;
+        GameObject.Find("InfoText").GetComponent<Text>().text = $"{i.Name}\n{i.ItemType.ToString().ToLower()}";
         GameObject.Find("InfoSprite").GetComponent<Image>().sprite = i.Sprite;
         currentSelected = obj;
     }
