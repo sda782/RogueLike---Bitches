@@ -8,6 +8,8 @@ public class Controller : MonoBehaviour
     private PlayerInventory inventory;
     private LootManager looty;
     private List<GameObject> items;
+    [SerializeField]
+    private Sprite open_chest;
     void Start()
     {
         items = new List<GameObject>();
@@ -23,14 +25,15 @@ public class Controller : MonoBehaviour
             switch (i.tag.ToLower())
             {
                 case "item":
-                    inventory.addToInventory(i.name.Substring(2));
+                    if (inventory.addToInventory(i.name.Substring(2))) { items.Remove(i); Destroy(i); }
                     break;
                 case "chest":
-                    looty.GenChestLoot(i.transform);
+                    looty.GenChestLoot(i.transform, new int[] { 2, 3, 2, 3 });
+                    items.Remove(i);
+                    i.GetComponent<SpriteRenderer>().sprite = open_chest;
+                    i.tag = "Untagged";
                     break;
             }
-            items.Remove(i);
-            Destroy(i);
         }
     }
 

@@ -22,7 +22,7 @@
             "Name": "Potion of healing",
             "Rarity": 0,
             "Equipable": false,
-            "ItemType": "Comsumable"
+            "ItemType": "Consumable"
         },
         {
             "Name": "Gold coin",

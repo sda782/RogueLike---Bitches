@@ -7,7 +7,7 @@ public class ItemManager : MonoBehaviour
 {
     private static List<Item> itemIndex;
     private static int nextId = 0;
-    public enum ItemType { EQUIPMENT, COMSUMABLE, COINS, MISC }
+    public enum ItemType { EQUIPMENT, CONSUMABLE, COINS, MISC }
     void Awake()
     {
         itemIndex = new List<Item>();

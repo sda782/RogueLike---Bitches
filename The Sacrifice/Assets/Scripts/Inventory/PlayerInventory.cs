@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,13 +31,15 @@ public class PlayerInventory : MonoBehaviour
         panel_inventory.SetActive(false);
         playerPos = GameObject.Find("Player").transform;
     }
-    public void addToInventory(string name)
+    public bool addToInventory(string name)
     {
+        if (bag.Count >= 80) return false;
         GameObject item = Instantiate(item_pre, bag_container.transform);
         Item i = ItemManager.GetItemByName(name);
         item.name = "i_" + i.Name;
         item.GetComponent<Image>().sprite = i.Sprite;
         bag.Add(item);
+        return true;
     }
 
     public void DropItem()
@@ -58,6 +61,17 @@ public class PlayerInventory : MonoBehaviour
         panel_inventory.SetActive(!panel_inventory.activeSelf);
         if (panel_inventory.activeSelf == false) panel_showinfo.SetActive(false);
     }
+
+    public void FilterInv(string filter)
+    {
+        foreach (var item in bag)
+        {
+            Item i = ItemManager.GetItemByName(item.name.Substring(2));
+            if (i.ItemType.ToLower() != filter.ToLower() && !String.IsNullOrEmpty(filter)) { item.SetActive(false); }
+            else { item.SetActive(true); }
+        }
+    }
+
     public static void ShowInfo(GameObject obj)
     {
         panel_showinfo.SetActive(true);

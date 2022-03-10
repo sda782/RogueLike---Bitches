@@ -7,7 +7,7 @@ public class AnimateLootDrop : MonoBehaviour
     private Vector2 endpoint;
     void Start()
     {
-        endpoint = (Vector2)transform.position + new Vector2(Random.Range(-1f, 2f), Random.Range(-1f, 2f));
+        endpoint = (Vector2)transform.position + new Vector2(Random.Range(-1f, 1.1f), Random.Range(-1f, 1.1f));
     }
 
     void Update()
