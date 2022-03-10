@@ -33,12 +33,13 @@ public class PlayerInventory : MonoBehaviour
     }
     public bool addToInventory(string name)
     {
-        if (bag.Count >= 80) return false;
+        if (bag.Count >= 80) { Debug.Log("Inv full"); return false; }
         GameObject item = Instantiate(item_pre, bag_container.transform);
         Item i = ItemManager.GetItemByName(name);
         item.name = "i_" + i.Name;
         item.GetComponent<Image>().sprite = i.Sprite;
         bag.Add(item);
+        SortChildrenItem(bag_container);
         return true;
     }
 
@@ -70,6 +71,18 @@ public class PlayerInventory : MonoBehaviour
             if (i.ItemType.ToLower() != filter.ToLower() && !String.IsNullOrEmpty(filter)) { item.SetActive(false); }
             else { item.SetActive(true); }
         }
+    }
+    //https://forum.unity.com/threads/sorting-children-at-runtime.267888/
+    public void SortChildrenItem(GameObject gameObject)
+    {
+        var children = gameObject.GetComponentsInChildren<Transform>(true);
+        var sorted = from child in children
+                     orderby child.gameObject.activeInHierarchy descending,
+                     child.name descending
+                     where child != gameObject.transform
+                     select child;
+        for (int i = 0; i < sorted.Count(); i++)
+            sorted.ElementAt(i).SetSiblingIndex(i);
     }
 
     public static void ShowInfo(GameObject obj)
