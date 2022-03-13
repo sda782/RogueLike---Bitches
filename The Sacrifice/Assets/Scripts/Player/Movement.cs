@@ -16,11 +16,13 @@ public class Movement : MonoBehaviour
     //Prevents faster movement when going diagonally
     private float speedLimiter = 0.75f;
 
+    private Animator animator;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -42,10 +44,26 @@ public class Movement : MonoBehaviour
         {
             speed = normalSpeed;
         }
+
+        AnimateSprite();
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+    }
+
+    private void AnimateSprite()
+    {
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+
+        if(movement.x != 0 || movement.y != 0)
+        {
+            animator.SetFloat("LastMovedHorizontal", movement.x);
+            animator.SetFloat("LastMovedVertical", movement.y);
+        }
     }
 }
