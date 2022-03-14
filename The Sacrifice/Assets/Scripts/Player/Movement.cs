@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        transform.position = GameObject.Find("RoomFirst").GetComponent<RoomFirst>().PlayerStartPos;
     }
 
     void Update()
@@ -28,13 +29,13 @@ public class Movement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        if(movement.x != 0 && movement.y != 0)
+        if (movement.x != 0 && movement.y != 0)
         {
             movement.x *= speedLimiter;
             movement.y *= speedLimiter;
         }
 
-        if(Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = sprintSpeed;
         }

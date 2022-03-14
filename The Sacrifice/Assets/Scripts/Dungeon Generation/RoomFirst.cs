@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,7 +17,7 @@ public class RoomFirst : SimpleRandomWalkMapGenerator
     //Checks if we want to use the randomAlgorithm, or generate square-rooms
     [SerializeField]
     private bool randomWalkRooms = false;
-
+    public Vector2 PlayerStartPos { get; set; }
     private void Start()
     {
         GenerateDungeon();
@@ -47,13 +48,17 @@ public class RoomFirst : SimpleRandomWalkMapGenerator
         foreach (var room in roomsList)
         {
             roomCenters.Add((Vector2Int)Vector3Int.RoundToInt(room.center));
+            Debug.Log("whatever");
         }
+        Debug.Log(roomCenters[0]);
+        PlayerStartPos = (Vector2)roomCenters[0];
         HashSet<Vector2Int> corridors = ConnectRooms(roomCenters);
         floor.UnionWith(corridors);
 
 
         tileMapVisualizer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tileMapVisualizer);
+
     }
 
 
