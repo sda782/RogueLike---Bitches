@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        transform.position = GameObject.Find("RoomFirst").GetComponent<RoomFirst>().PlayerStartPos;
+        //transform.position = GameObject.Find("RoomFirst").GetComponent<RoomFirst>().PlayerStartPos;
     }
 
     void Update()
