@@ -17,7 +17,10 @@ public class RoomFirst : SimpleRandomWalkMapGenerator
     [SerializeField]
     private bool randomWalkRooms = false;
 
-
+    private void Start()
+    {
+        GenerateDungeon();
+    }
     protected override void RunProceduralGeneration()
     {
         CreateRooms();
@@ -31,14 +34,14 @@ public class RoomFirst : SimpleRandomWalkMapGenerator
         HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
         if (randomWalkRooms)
         {
-            floor = CreateRoomsRandomly(roomsList); 
+            floor = CreateRoomsRandomly(roomsList);
         }
         else
         {
             floor = CreateSimpleRooms(roomsList);
         }
 
-        
+
 
         List<Vector2Int> roomCenters = new List<Vector2Int>();
         foreach (var room in roomsList)
@@ -98,7 +101,7 @@ public class RoomFirst : SimpleRandomWalkMapGenerator
 
         while (position.y != destination.y)
         {
-            if(destination.y > position.y)
+            if (destination.y > position.y)
             {
                 position += Vector2Int.up;
             }
@@ -110,11 +113,11 @@ public class RoomFirst : SimpleRandomWalkMapGenerator
         }
         while (position.x != destination.x)
         {
-            if(destination.x > position.x)
+            if (destination.x > position.x)
             {
                 position += Vector2Int.right;
             }
-            else if(destination.x < position.x)
+            else if (destination.x < position.x)
             {
                 position += Vector2Int.left;
             }
@@ -130,7 +133,7 @@ public class RoomFirst : SimpleRandomWalkMapGenerator
         foreach (var position in roomCenters)
         {
             float currentDistance = Vector2.Distance(position, currentRoomCenter);
-            if(currentDistance < distance)
+            if (currentDistance < distance)
             {
                 distance = currentDistance;
                 closest = position;
@@ -144,15 +147,15 @@ public class RoomFirst : SimpleRandomWalkMapGenerator
         HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
         foreach (var room in roomsList)
         {
-            for (int col = offset; col < room.size.x-offset; col++)
+            for (int col = offset; col < room.size.x - offset; col++)
             {
-                for (int row = offset; row < room.size.y-offset; row++)
+                for (int row = offset; row < room.size.y - offset; row++)
                 {
                     Vector2Int position = (Vector2Int)room.min + new Vector2Int(col, row);
                     floor.Add(position);
                 }
             }
         }
-        return floor; 
+        return floor;
     }
 }
