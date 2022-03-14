@@ -72,6 +72,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -508,6 +509,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      gui_equipment_icons_12: -83950659640924252
+      gui_equipment_icons_1: -8776963960490999545
+      gui_equipment_icons_2: -9101319923901843021
+      gui_equipment_icons_4: -2954831241911132092
+      gui_equipment_icons_5: 9056719512899026180
+      gui_equipment_icons_6: -8144930442941677655
+      gui_equipment_icons_3: 4497278910375648794
+      gui_equipment_icons_13: 1597496066421824854
+      gui_equipment_icons_14: 7336006778573379862
+      gui_equipment_icons_8: -5855285108278834147
+      gui_equipment_icons_11: -10156242361203013
+      gui_equipment_icons_15: -3411302062729932788
+      gui_equipment_icons_0: -1881590534852895698
+      gui_equipment_icons_7: 1806614197675954249
+      gui_equipment_icons_9: -126864918525880271
+      gui_equipment_icons_10: 1227044663063086557
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
