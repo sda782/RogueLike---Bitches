@@ -132,6 +132,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -988,6 +989,43 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      bottles_4x_33: 6793722252557603158
+      bottles_4x_24: 6521940125240451477
+      bottles_4x_1: 424995713319306018
+      bottles_4x_32: 4024657777959118635
+      bottles_4x_26: -7813760132557092660
+      bottles_4x_27: 105162824110659446
+      bottles_4x_20: -8383560810200287115
+      bottles_4x_2: 1864265311293482662
+      bottles_4x_34: 5363236427600678856
+      bottles_4x_3: 802670475390504836
+      bottles_4x_5: 92013962716499393
+      bottles_4x_15: -71167243946536463
+      bottles_4x_9: 2637982082012084750
+      bottles_4x_8: -328575861081578887
+      bottles_4x_11: -4427858463753353462
+      bottles_4x_0: -7478538369679687451
+      bottles_4x_22: -6075542824117038990
+      bottles_4x_18: -8373579761230149293
+      bottles_4x_6: 5865048948696808166
+      bottles_4x_10: 1284741541721364423
+      bottles_4x_14: 2656083795632487876
+      bottles_4x_25: -7116780926071608888
+      bottles_4x_16: 6396502630985201825
+      bottles_4x_4: 4539763043896093596
+      bottles_4x_13: -5969608361334472904
+      bottles_4x_28: 3907728356707219796
+      bottles_4x_19: -1029032465898444396
+      bottles_4x_23: -7298211074342045628
+      bottles_4x_7: -467943051065907971
+      bottles_4x_31: 3491091649193860312
+      bottles_4x_21: -1146694278184785761
+      bottles_4x_35: 167138094637422945
+      bottles_4x_17: -34480629677222093
+      bottles_4x_12: 4818538390015290645
+      bottles_4x_29: 5206511209632028375
+      bottles_4x_30: -8316879602793151121
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
