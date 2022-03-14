@@ -33,13 +33,13 @@ public class PlayerInventory : MonoBehaviour
     }
     public bool addToInventory(string name)
     {
-        if (bag.Count >= 80) { Debug.Log("Inv full"); return false; }
+        if (bag.Count >= 72) { Debug.Log("Inv full"); return false; }
         GameObject item = Instantiate(item_pre, bag_container.transform);
         Item i = ItemManager.GetItemByName(name);
         item.name = "i_" + i.Name;
         item.GetComponent<Image>().sprite = i.Sprite;
         bag.Add(item);
-        SortChildrenItem(bag_container);
+        //SortChildrenItem(bag_container);
         return true;
     }
 

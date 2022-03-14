@@ -28,7 +28,7 @@ public class Controller : MonoBehaviour
                     if (inventory.addToInventory(i.name.Substring(2))) { items.Remove(i); Destroy(i); }
                     break;
                 case "chest":
-                    looty.GenChestLoot(i.transform, new int[] { 2, 3, 2, 3 });
+                    looty.GenChestLoot(i.transform);
                     items.Remove(i);
                     i.GetComponent<SpriteRenderer>().sprite = open_chest;
                     i.tag = "Untagged";

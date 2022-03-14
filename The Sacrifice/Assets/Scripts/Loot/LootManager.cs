@@ -11,15 +11,14 @@ public class LootManager : MonoBehaviour
     ///Generate chest loot
     ///</summary>
     ///<param name="pos">The position where the loot should spawn</param>
-    ///<param name="distribution">The amount of each type items that will drop, in order of(EQUIPMENT, CONSUMABLE, COINS, MISC)</param>
-    public void GenChestLoot(Transform pos, int[] distribution)
+    public void GenChestLoot(Transform pos)
     {
-        if (distribution.Length != 4) throw new ArgumentOutOfRangeException("distribution must contain 4 elements");
+        ///The amount of each type items that will drop, in order of(EQUIPMENT, CONSUMABLE, COINS, MISC)
+        int[] distribution = new int[] { 2, 3, 2, 3 };
         for (int i = 0; i < distribution.Length; i++)
         {
             for (int j = 0; j < distribution[i]; j++)
             {
-                // Spawn Loot Item
                 spawnLoot(i, pos);
             }
         }
