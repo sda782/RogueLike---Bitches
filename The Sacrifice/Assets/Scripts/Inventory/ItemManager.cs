@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
     private static List<Item> itemIndex;
     private static int nextId = 0;
+    public enum ItemType { EQUIPMENT, CONSUMABLE, COINS, MISC }
     void Awake()
     {
         itemIndex = new List<Item>();
@@ -19,6 +21,12 @@ public class ItemManager : MonoBehaviour
     public static Item GetItemByName(string name)
     {
         return itemIndex.Find(i => i.Name == name);
+    }
+    public static List<Item> GetItemsByType(ItemType itemType)
+    {
+        List<Item> items = new List<Item>();
+        items = itemIndex.FindAll(i => i.ItemType.ToLower() == itemType.ToString().ToLower());
+        return items;
     }
     private static void getItemsFromJson()
     {

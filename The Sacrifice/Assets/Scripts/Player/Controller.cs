@@ -6,23 +6,33 @@ public class Controller : MonoBehaviour
 {
 
     private PlayerInventory inventory;
+    private LootManager looty;
     private List<GameObject> items;
+    [SerializeField]
+    private Sprite open_chest;
     void Start()
     {
         items = new List<GameObject>();
         inventory = GameObject.Find("InvetoryManager").GetComponent<PlayerInventory>();
+        looty = GameObject.Find("LootContainer").GetComponent<LootManager>();
     }
 
     public void PickUp()
     {
         if (items.Count > 0)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            GameObject i = items[0];
+            switch (i.tag.ToLower())
             {
-                GameObject i = items[0];
-                inventory.addToInventory(i.name.Substring(2));
-                items.Remove(i);
-                Destroy(i);
+                case "item":
+                    if (inventory.addToInventory(i.name.Substring(2))) { items.Remove(i); Destroy(i); }
+                    break;
+                case "chest":
+                    looty.GenChestLoot(i.transform);
+                    items.Remove(i);
+                    i.GetComponent<SpriteRenderer>().sprite = open_chest;
+                    i.tag = "Untagged";
+                    break;
             }
         }
     }
@@ -34,6 +44,9 @@ public class Controller : MonoBehaviour
             case "item":
                 items.Add(col.gameObject);
                 break;
+            case "chest":
+                items.Add(col.gameObject);
+                break;
         }
     }
     void OnTriggerExit2D(Collider2D col)
@@ -41,6 +54,9 @@ public class Controller : MonoBehaviour
         switch (col.tag.ToLower())
         {
             case "item":
+                items.Remove(col.gameObject);
+                break;
+            case "chest":
                 items.Remove(col.gameObject);
                 break;
         }

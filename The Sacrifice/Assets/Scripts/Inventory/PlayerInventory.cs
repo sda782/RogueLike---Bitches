@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,13 +31,16 @@ public class PlayerInventory : MonoBehaviour
         panel_inventory.SetActive(false);
         playerPos = GameObject.Find("Player").transform;
     }
-    public void addToInventory(string name)
+    public bool addToInventory(string name)
     {
+        if (bag.Count >= 72) { Debug.Log("Inv full"); return false; }
         GameObject item = Instantiate(item_pre, bag_container.transform);
         Item i = ItemManager.GetItemByName(name);
         item.name = "i_" + i.Name;
         item.GetComponent<Image>().sprite = i.Sprite;
         bag.Add(item);
+        //SortChildrenItem(bag_container);
+        return true;
     }
 
     public void DropItem()
@@ -58,11 +62,34 @@ public class PlayerInventory : MonoBehaviour
         panel_inventory.SetActive(!panel_inventory.activeSelf);
         if (panel_inventory.activeSelf == false) panel_showinfo.SetActive(false);
     }
+
+    public void FilterInv(string filter)
+    {
+        foreach (var item in bag)
+        {
+            Item i = ItemManager.GetItemByName(item.name.Substring(2));
+            if (i.ItemType.ToLower() != filter.ToLower() && !String.IsNullOrEmpty(filter)) { item.SetActive(false); }
+            else { item.SetActive(true); }
+        }
+    }
+    //https://forum.unity.com/threads/sorting-children-at-runtime.267888/
+    public void SortChildrenItem(GameObject gameObject)
+    {
+        var children = gameObject.GetComponentsInChildren<Transform>(true);
+        var sorted = from child in children
+                     orderby child.gameObject.activeInHierarchy descending,
+                     child.name descending
+                     where child != gameObject.transform
+                     select child;
+        for (int i = 0; i < sorted.Count(); i++)
+            sorted.ElementAt(i).SetSiblingIndex(i);
+    }
+
     public static void ShowInfo(GameObject obj)
     {
         panel_showinfo.SetActive(true);
         Item i = ItemManager.GetItemByName(obj.name.Substring(2));
-        GameObject.Find("InfoText").GetComponent<Text>().text = i.Name;
+        GameObject.Find("InfoText").GetComponent<Text>().text = $"{i.Name}\n{i.ItemType.ToString().ToLower()}";
         GameObject.Find("InfoSprite").GetComponent<Image>().sprite = i.Sprite;
         currentSelected = obj;
     }
