@@ -17,12 +17,13 @@ public class Movement : MonoBehaviour
     private float speedLimiter = 0.75f;
 
     private Animator animator;
-
+    private SpriteRenderer sprite;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -55,15 +56,18 @@ public class Movement : MonoBehaviour
 
     private void AnimateSprite()
     {
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
+        //animator.SetFloat("Horizontal", movement.x);
+        //animator.SetFloat("Vertical", movement.y);
 
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        if(movement.x != 0 || movement.y != 0)
+        if(movement.x < 0)
         {
-            animator.SetFloat("LastMovedHorizontal", movement.x);
-            animator.SetFloat("LastMovedVertical", movement.y);
+            sprite.flipX = true;
+        }
+        else
+        {
+            sprite.flipX = false;
         }
     }
 }

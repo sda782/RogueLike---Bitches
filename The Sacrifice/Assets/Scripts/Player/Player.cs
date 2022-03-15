@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Player
+public static class Player
 {
-    private const float _MaxHealth = 100;
-    private float _Health;
+    private const float _MaxHealth = 4;
+    private static float _Health = 4;
 
-    public float MaxHealth
+    public static float MaxHealth
     {
         get => _MaxHealth;
     }
-    public float Health
+    public static float Health
     {
         get => _Health;
         set

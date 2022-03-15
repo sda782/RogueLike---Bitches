@@ -46,14 +46,10 @@ public class Attack : MonoBehaviour
     {
         animator.SetTrigger("Attack");
 
-        GameObject a = Instantiate(ball, transform.position, transform.rotation);
-
         if (hitDirection.x <= 0 && hitDirection.y <= 0)
         {
             hitDirection = lastHitDirection;
         }
-
-        a.GetComponent<Rigidbody2D>().AddForce(hitDirection * 1000f * Time.deltaTime, ForceMode2D.Impulse);
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
