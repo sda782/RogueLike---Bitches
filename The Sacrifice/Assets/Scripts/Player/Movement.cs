@@ -16,12 +16,19 @@ public class Movement : MonoBehaviour
     //Prevents faster movement when going diagonally
     private float speedLimiter = 0.75f;
 
+    private Animator animator;
+    private SpriteRenderer sprite;
 
+    private float lastDirection = 1f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+        
         //transform.position = GameObject.Find("RoomFirst").GetComponent<RoomFirst>().PlayerStartPos;
+
     }
 
     void Update()
@@ -43,10 +50,33 @@ public class Movement : MonoBehaviour
         {
             speed = normalSpeed;
         }
+
+        AnimateSprite();
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+    }
+
+    private void AnimateSprite()
+    {
+        if (movement.sqrMagnitude > 0)
+        {
+            lastDirection = movement.x;
+        }
+
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+
+        if(lastDirection >= 0)
+        {
+            sprite.flipX = false;
+        }
+        else if(lastDirection < 0)
+        {
+            sprite.flipX = true;
+        }
+
+        
     }
 }
