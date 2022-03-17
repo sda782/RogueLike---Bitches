@@ -16,6 +16,9 @@ public class Attack : MonoBehaviour
 
     private Animator animator;
 
+    private bool attackReady = true;
+    private float attackCoolDown = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +40,10 @@ public class Attack : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Hit();
+            if(attackReady)
+            {
+                Hit();
+            }
         }
     }
 
@@ -54,6 +60,8 @@ public class Attack : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         //Foreach Collider2d enemies (take dmg)
+
+        StartCoroutine("AttackCoolDown");
     }
 
     private void OnDrawGizmosSelected()
@@ -61,5 +69,12 @@ public class Attack : MonoBehaviour
         if(attackPoint == null) { return; }
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    private IEnumerator AttackCoolDown()
+    {
+        attackReady = false;
+        yield return new WaitForSeconds(attackCoolDown);
+        attackReady = true;
     }
 }

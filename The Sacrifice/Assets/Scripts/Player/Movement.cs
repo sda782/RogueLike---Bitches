@@ -19,6 +19,8 @@ public class Movement : MonoBehaviour
     private Animator animator;
     private SpriteRenderer sprite;
 
+    private float lastDirection = 1f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,18 +58,22 @@ public class Movement : MonoBehaviour
 
     private void AnimateSprite()
     {
-        //animator.SetFloat("Horizontal", movement.x);
-        //animator.SetFloat("Vertical", movement.y);
+        if (movement.sqrMagnitude > 0)
+        {
+            lastDirection = movement.x;
+        }
 
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        if(movement.x < 0)
-        {
-            sprite.flipX = true;
-        }
-        else
+        if(lastDirection >= 0)
         {
             sprite.flipX = false;
         }
+        else if(lastDirection < 0)
+        {
+            sprite.flipX = true;
+        }
+
+        
     }
 }
