@@ -3,17 +3,38 @@
         {
             "Name": "A fools sword",
             "Rarity": 0,
-            "Equipable": true
+            "Equipable": true,
+            "ItemType": "Equipment"
         },
         {
             "Name": "Apprentice hammer",
             "Rarity": 1,
-            "Equipable": true
+            "Equipable": true,
+            "ItemType": "Equipment"
         },
         {
             "Name": "The elder bow",
             "Rarity": 0,
-            "Equipable": true
+            "Equipable": true,
+            "ItemType": "Equipment"
+        },
+        {
+            "Name": "Potion of healing",
+            "Rarity": 0,
+            "Equipable": false,
+            "ItemType": "Consumable"
+        },
+        {
+            "Name": "Gold coin",
+            "Rarity": 0,
+            "Equipable": false,
+            "ItemType": "Coins"
+        },
+        {
+            "Name": "Lucky clover",
+            "Rarity": 4,
+            "Equipable": false,
+            "ItemType": "Misc"
         }
     ]
 }

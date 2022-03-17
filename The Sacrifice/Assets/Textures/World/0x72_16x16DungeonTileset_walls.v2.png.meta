@@ -252,6 +252,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1960,6 +1961,83 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      0x72_16x16DungeonTileset_walls.v2_10: 590102883443157411
+      0x72_16x16DungeonTileset_walls.v2_31: -2742618634759641437
+      0x72_16x16DungeonTileset_walls.v2_9: -4578894070893331512
+      0x72_16x16DungeonTileset_walls.v2_27: -7077589234880141221
+      0x72_16x16DungeonTileset_walls.v2_32: -3199873454555356211
+      0x72_16x16DungeonTileset_walls.v2_74: 8237929884043626207
+      0x72_16x16DungeonTileset_walls.v2_6: -4578277232388540663
+      0x72_16x16DungeonTileset_walls.v2_42: 5914568028636198846
+      0x72_16x16DungeonTileset_walls.v2_3: 124498816051794376
+      0x72_16x16DungeonTileset_walls.v2_75: 5572278957654629187
+      0x72_16x16DungeonTileset_walls.v2_21: -5306240626240765148
+      0x72_16x16DungeonTileset_walls.v2_62: -1249847450872035698
+      0x72_16x16DungeonTileset_walls.v2_69: 7166990971051088194
+      0x72_16x16DungeonTileset_walls.v2_14: 8759485737987542958
+      0x72_16x16DungeonTileset_walls.v2_48: 8330217427383875444
+      0x72_16x16DungeonTileset_walls.v2_45: 3845537450204115956
+      0x72_16x16DungeonTileset_walls.v2_50: 4825874619770316912
+      0x72_16x16DungeonTileset_walls.v2_8: 2598454094533549832
+      0x72_16x16DungeonTileset_walls.v2_12: -8454183682176680390
+      0x72_16x16DungeonTileset_walls.v2_26: -7712248037727264722
+      0x72_16x16DungeonTileset_walls.v2_39: -5941152969869577623
+      0x72_16x16DungeonTileset_walls.v2_60: 203648337402960045
+      0x72_16x16DungeonTileset_walls.v2_58: 2607869898994990978
+      0x72_16x16DungeonTileset_walls.v2_71: -1052691551702339321
+      0x72_16x16DungeonTileset_walls.v2_73: -5968707229580820096
+      0x72_16x16DungeonTileset_walls.v2_33: -665962829737966542
+      0x72_16x16DungeonTileset_walls.v2_43: -1564402566896760628
+      0x72_16x16DungeonTileset_walls.v2_70: -2308687762759036951
+      0x72_16x16DungeonTileset_walls.v2_41: 8613003731998605101
+      0x72_16x16DungeonTileset_walls.v2_36: -195678454309653094
+      0x72_16x16DungeonTileset_walls.v2_67: -6245698041521504132
+      0x72_16x16DungeonTileset_walls.v2_53: -6908365576738492372
+      0x72_16x16DungeonTileset_walls.v2_63: -8901056928475059028
+      0x72_16x16DungeonTileset_walls.v2_37: -341223053245530836
+      0x72_16x16DungeonTileset_walls.v2_65: -7960001738786973497
+      0x72_16x16DungeonTileset_walls.v2_52: -6209337786616003418
+      0x72_16x16DungeonTileset_walls.v2_47: 2466139780458313957
+      0x72_16x16DungeonTileset_walls.v2_35: 2329072905178037040
+      0x72_16x16DungeonTileset_walls.v2_7: -2459338490688143010
+      0x72_16x16DungeonTileset_walls.v2_18: 9174712218916535517
+      0x72_16x16DungeonTileset_walls.v2_1: -2379081495769866741
+      0x72_16x16DungeonTileset_walls.v2_38: 8942840945371185414
+      0x72_16x16DungeonTileset_walls.v2_0: -3242722390855433593
+      0x72_16x16DungeonTileset_walls.v2_15: -9114431336054513413
+      0x72_16x16DungeonTileset_walls.v2_68: -6588221925345662487
+      0x72_16x16DungeonTileset_walls.v2_30: 2305514110254819822
+      0x72_16x16DungeonTileset_walls.v2_72: -8808169981541794039
+      0x72_16x16DungeonTileset_walls.v2_2: 6969480558909463819
+      0x72_16x16DungeonTileset_walls.v2_29: -8608097686109361680
+      0x72_16x16DungeonTileset_walls.v2_16: 4341594522678544543
+      0x72_16x16DungeonTileset_walls.v2_54: 4406664093609824445
+      0x72_16x16DungeonTileset_walls.v2_57: -1882484414030319336
+      0x72_16x16DungeonTileset_walls.v2_24: -808666358165588633
+      0x72_16x16DungeonTileset_walls.v2_61: 6405980431841602944
+      0x72_16x16DungeonTileset_walls.v2_55: 8497398859276016994
+      0x72_16x16DungeonTileset_walls.v2_19: -8783419286127604809
+      0x72_16x16DungeonTileset_walls.v2_11: 3041821678945661999
+      0x72_16x16DungeonTileset_walls.v2_46: -7310836154142219337
+      0x72_16x16DungeonTileset_walls.v2_34: -3237338062129605459
+      0x72_16x16DungeonTileset_walls.v2_17: -6153478151290498496
+      0x72_16x16DungeonTileset_walls.v2_40: 1204776479768108231
+      0x72_16x16DungeonTileset_walls.v2_64: -7060763939517676495
+      0x72_16x16DungeonTileset_walls.v2_49: -4357234348051554280
+      0x72_16x16DungeonTileset_walls.v2_28: -2119219216328049044
+      0x72_16x16DungeonTileset_walls.v2_13: 5594434884787801537
+      0x72_16x16DungeonTileset_walls.v2_56: -7197914811840502964
+      0x72_16x16DungeonTileset_walls.v2_4: -3936103182032055862
+      0x72_16x16DungeonTileset_walls.v2_66: -6461973995773888413
+      0x72_16x16DungeonTileset_walls.v2_5: 9212736681109544597
+      0x72_16x16DungeonTileset_walls.v2_22: -1870187911311171964
+      0x72_16x16DungeonTileset_walls.v2_20: -2138190412523955323
+      0x72_16x16DungeonTileset_walls.v2_44: -3935731147055713701
+      0x72_16x16DungeonTileset_walls.v2_51: 4266833482259441017
+      0x72_16x16DungeonTileset_walls.v2_25: -221481209837386622
+      0x72_16x16DungeonTileset_walls.v2_23: 8271673084494220546
+      0x72_16x16DungeonTileset_walls.v2_59: 6376301560222588558
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

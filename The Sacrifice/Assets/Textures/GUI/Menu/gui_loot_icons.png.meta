@@ -72,6 +72,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -508,6 +509,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      gui_loot_icons_8: 2874444910522794425
+      gui_loot_icons_0: 7707255804581131290
+      gui_loot_icons_7: -3719105617158348306
+      gui_loot_icons_12: -8601156605915750642
+      gui_loot_icons_2: 5364509095585310238
+      gui_loot_icons_14: -1884329660299903368
+      gui_loot_icons_4: 3439760445671951427
+      gui_loot_icons_1: 2686925373666952358
+      gui_loot_icons_6: 5698426079007597583
+      gui_loot_icons_3: -3790791467179390004
+      gui_loot_icons_11: -6720968826076950347
+      gui_loot_icons_5: 6747306032042818225
+      gui_loot_icons_15: -5305205188995809999
+      gui_loot_icons_9: -1905449406758757421
+      gui_loot_icons_13: -804369251439825887
+      gui_loot_icons_10: -7023313604081100797
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
