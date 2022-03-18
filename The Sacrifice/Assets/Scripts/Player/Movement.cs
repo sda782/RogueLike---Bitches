@@ -61,7 +61,7 @@ public class Movement : MonoBehaviour
 
     private void AnimateSprite()
     {
-        if (movement.sqrMagnitude > 0)
+        if (movement.x != 0)
         {
             lastDirection = movement.x;
         }
