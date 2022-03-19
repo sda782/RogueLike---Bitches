@@ -17,9 +17,10 @@ public class RoomFirst : SimpleRandomWalkMapGenerator
     //Checks if we want to use the randomAlgorithm, or generate square-rooms
     [SerializeField]
     private bool randomWalkRooms = false;
-    public Vector2 PlayerStartPos { get; set; }
-    private void Start()
+    public List<Vector2> RoomList { get; set; }
+    private void Awake()
     {
+        RoomList = new List<Vector2>();
         GenerateDungeon();
     }
     protected override void RunProceduralGeneration()
@@ -47,11 +48,10 @@ public class RoomFirst : SimpleRandomWalkMapGenerator
         List<Vector2Int> roomCenters = new List<Vector2Int>();
         foreach (var room in roomsList)
         {
-            roomCenters.Add((Vector2Int)Vector3Int.RoundToInt(room.center));
-            Debug.Log("whatever");
+            Vector2Int pos = (Vector2Int)Vector3Int.RoundToInt(room.center);
+            roomCenters.Add(pos);
+            RoomList.Add((Vector2)pos);
         }
-        Debug.Log(roomCenters[0]);
-        PlayerStartPos = (Vector2)roomCenters[0];
         HashSet<Vector2Int> corridors = ConnectRooms(roomCenters);
         floor.UnionWith(corridors);
 

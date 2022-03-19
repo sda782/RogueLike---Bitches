@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Item
   - Chest
+  - Portal
   layers:
   - Default
   - TransparentFX
