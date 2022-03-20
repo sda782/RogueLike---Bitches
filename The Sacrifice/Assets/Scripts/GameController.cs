@@ -11,19 +11,31 @@ public class GameController : MonoBehaviour
     private GameObject portal_pre;
     [SerializeField]
     private GameObject chest_pre;
+    [SerializeField]
+    private Sprite keyChestSprite;
     void Start()
     {
         RoomFirst rf = GameObject.Find("RoomFirst").GetComponent<RoomFirst>();
         GameObject portal = Instantiate(portal_pre);
         portal.transform.position = rf.RoomList.LastOrDefault();
         player.transform.position = rf.RoomList.FirstOrDefault();
+        bool setKeyChest = false;
         for (int i = 1; i < rf.RoomList.Count - 1; i++)
         {
             if (i != 1 || i != rf.RoomList.Count - 1)
             {
-                GameObject chest = Instantiate(chest_pre);
-                chest.transform.SetParent(GameObject.Find("LootContainer").transform);
-                chest.transform.position = rf.RoomList[i];
+                if (i % 4 == 0)
+                {
+                    GameObject chest = Instantiate(chest_pre);
+                    chest.transform.SetParent(GameObject.Find("LootContainer").transform);
+                    chest.transform.position = rf.RoomList[i];
+                    if (!setKeyChest)
+                    {
+                        chest.tag = "KeyChest";
+                        chest.GetComponent<SpriteRenderer>().sprite = keyChestSprite;
+                        setKeyChest = true;
+                    }
+                }
             }
         }
     }

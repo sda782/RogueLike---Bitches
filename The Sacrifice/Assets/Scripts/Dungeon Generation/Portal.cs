@@ -13,7 +13,15 @@ public class Portal : MonoBehaviour
     }
     public void EnterPortal()
     {
-        if (canEnter) SceneManager.LoadScene(1);
+        if (canEnter)
+        {
+            PlayerInventory pi = GameObject.Find("InvetoryManager").GetComponent<PlayerInventory>();
+            if (pi.hasItem("i_Door key"))
+            {
+                pi.RemoveFromInventory("i_Door key");
+                SceneManager.LoadScene(1);
+            }
+        }
     }
     public void OnTriggerEnter2D(Collider2D col)
     {

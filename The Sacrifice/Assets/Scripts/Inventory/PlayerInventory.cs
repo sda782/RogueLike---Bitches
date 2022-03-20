@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,10 +53,17 @@ public class PlayerInventory : MonoBehaviour
         worldItem.transform.SetParent(GameObject.Find("ItemContainer").transform);
         RemoveFromInventory();
     }
-    public void RemoveFromInventory()
+    public void RemoveFromInventory(string name = "")
     {
-        Destroy(bag.Find(g => g == currentSelected));
-        panel_showinfo.SetActive(false);
+        if (name != "")
+        {
+            Destroy(bag.Find(g => g.name == name));
+        }
+        else
+        {
+            Destroy(bag.Find(g => g == currentSelected));
+            panel_showinfo.SetActive(false);
+        }
     }
     public void ToggleInventory()
     {
@@ -92,5 +100,10 @@ public class PlayerInventory : MonoBehaviour
         GameObject.Find("InfoText").GetComponent<Text>().text = $"{i.Name}\n{i.ItemType.ToString().ToLower()}";
         GameObject.Find("InfoSprite").GetComponent<Image>().sprite = i.Sprite;
         currentSelected = obj;
+    }
+
+    public bool hasItem(string name)
+    {
+        return bag.Find(i => i.name == name) != null;
     }
 }

@@ -11,6 +11,7 @@ public class Item
     public Sprite Sprite;
     public bool Equipable;
     public string ItemType;
+    public bool IsUnique;
 
     public void SetSprite()
     {

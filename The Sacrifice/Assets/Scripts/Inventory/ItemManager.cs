@@ -37,6 +37,7 @@ public class ItemManager : MonoBehaviour
         {
             item.Id = nextId++;
             item.SetSprite();
+            Debug.Log(item.Name);
         }
         Debug.Log("Loaded " + items.items.Count + " items from file");
     }

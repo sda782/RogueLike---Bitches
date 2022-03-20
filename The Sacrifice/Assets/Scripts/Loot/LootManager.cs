@@ -23,14 +23,28 @@ public class LootManager : MonoBehaviour
             }
         }
     }
+    public void GenKeyChestLoot(Transform pos)
+    {
+        GameObject worldItem = Instantiate(world_item_pre, pos);
+        Item key_item = ItemManager.GetItemByName("Door key");
+        worldItem.name = "i_" + key_item.Name;
+        worldItem.GetComponent<SpriteRenderer>().sprite = key_item.Sprite;
+        worldItem.transform.SetParent(GameObject.Find("ItemContainer").transform);
+        worldItem.AddComponent<AnimateLootDrop>();
+    }
     private void spawnLoot(int enumIndex, Transform pos)
     {
         ItemType it = (ItemType)enumIndex;
         GameObject worldItem = Instantiate(world_item_pre, pos);
+
         List<Item> itemsFromType = ItemManager.GetItemsByType((ItemType)enumIndex);
         int rngItemIndex = UnityEngine.Random.Range(0, itemsFromType.Count);
-        worldItem.name = "i_" + itemsFromType[rngItemIndex].Name;
-        worldItem.GetComponent<SpriteRenderer>().sprite = itemsFromType[rngItemIndex].Sprite;
+
+        Item sItem = itemsFromType[rngItemIndex];
+        if (sItem.IsUnique) sItem = itemsFromType.Find(i => i.IsUnique == false);
+
+        worldItem.name = "i_" + sItem.Name;
+        worldItem.GetComponent<SpriteRenderer>().sprite = sItem.Sprite;
         worldItem.transform.SetParent(GameObject.Find("ItemContainer").transform);
         worldItem.AddComponent<AnimateLootDrop>();
     }
