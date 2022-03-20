@@ -32,6 +32,17 @@ public class PlayerInventory : MonoBehaviour
         panel_inventory.SetActive(false);
         playerPos = GameObject.Find("Player").transform;
     }
+
+    void Start()
+    {
+        if (PlayerStats.KeepInventory.Count != 0)
+        {
+            foreach (var name in PlayerStats.KeepInventory)
+            {
+                addToInventory(name);
+            }
+        }
+    }
     public bool addToInventory(string name)
     {
         if (bag.Count >= 72) { Debug.Log("Inv full"); return false; }
@@ -53,17 +64,10 @@ public class PlayerInventory : MonoBehaviour
         worldItem.transform.SetParent(GameObject.Find("ItemContainer").transform);
         RemoveFromInventory();
     }
-    public void RemoveFromInventory(string name = "")
+    public void RemoveFromInventory()
     {
-        if (name != "")
-        {
-            Destroy(bag.Find(g => g.name == name));
-        }
-        else
-        {
-            Destroy(bag.Find(g => g == currentSelected));
-            panel_showinfo.SetActive(false);
-        }
+        Destroy(bag.Find(g => g == currentSelected));
+        panel_showinfo.SetActive(false);
     }
     public void ToggleInventory()
     {
@@ -106,4 +110,6 @@ public class PlayerInventory : MonoBehaviour
     {
         return bag.Find(i => i.name == name) != null;
     }
+
+    public List<GameObject> GetBag { get => bag; }
 }

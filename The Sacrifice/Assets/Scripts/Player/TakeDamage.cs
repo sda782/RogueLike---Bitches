@@ -16,7 +16,7 @@ public class TakeDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             PlayerTakeDamage();
         }
@@ -36,7 +36,7 @@ public class TakeDamage : MonoBehaviour
         {
             GetComponent<Movement>().enabled = false;
             animator.SetTrigger("Death");
-            //Game Over Screen
+            GameController.GameOver(false);
         }
     }
 }

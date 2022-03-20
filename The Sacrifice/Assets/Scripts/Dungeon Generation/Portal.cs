@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
@@ -18,8 +17,7 @@ public class Portal : MonoBehaviour
             PlayerInventory pi = GameObject.Find("InvetoryManager").GetComponent<PlayerInventory>();
             if (pi.hasItem("i_Door key"))
             {
-                pi.RemoveFromInventory("i_Door key");
-                SceneManager.LoadScene(1);
+                GameController.GameOver(true);
             }
         }
     }
