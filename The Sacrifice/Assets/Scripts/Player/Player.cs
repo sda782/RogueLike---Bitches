@@ -5,8 +5,8 @@ public class Player : EntityStats
 {
     void Start()
     {
-        maxhealth = 4;
-        currenthealth = maxhealth;
+        maxHealth = 4;
+        currentHealth = maxHealth;
         attack = 1;
         speed = 5;
         stamina = 3;
@@ -14,11 +14,11 @@ public class Player : EntityStats
     }
     public override int Health
     {
-        get => currenthealth;
+        get => currentHealth;
         set
         {
-            if (value > maxhealth) { currenthealth = maxhealth; }
-            currenthealth = value;
+            if (value > maxHealth) { currentHealth = maxHealth; }
+            currentHealth = value;
         }
     }
 }

@@ -6,15 +6,16 @@ using System;
 
 public class TakeDamage : MonoBehaviour
 {
-    public Image[] heartImages;
     //public HealthbarBehavior healthbar;
     private Animator animator;
     private Player player;
+    private PlayerHeartsManager heartUI;
 
     private void Awake()
     {
         //healthbar.SetHealth(Player.Health, Player.MaxHealth);
         animator = GetComponent<Animator>();
+        heartUI = GetComponent<PlayerHeartsManager>();
     }
     private void Start()
     {
@@ -25,7 +26,7 @@ public class TakeDamage : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            PlayerStats.Currency += 1;
+            //PlayerStats.Currency += 1;
             PlayerTakeDamage();
         }
     }
@@ -38,7 +39,7 @@ public class TakeDamage : MonoBehaviour
         //Play animation
         animator.SetTrigger("TakeDamage");
         //decrease UI healthbar
-        heartImages[player.Health].enabled = false;
+        heartUI.DecreaseHearts();
         //healthbar.SetHealth(Player.Health, Player.MaxHealth);
 
         if (player.Health <= 0)
