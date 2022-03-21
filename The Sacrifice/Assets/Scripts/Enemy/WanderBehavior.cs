@@ -9,6 +9,8 @@ public class WanderBehavior : StateMachineBehaviour
     public float chaseDistanceStart;
     private Vector3 target;
     private float Distance;
+    private Vector2 direction;
+    //public SpriteRenderer sprite;
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -24,7 +26,13 @@ public class WanderBehavior : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.transform.position = Vector3.MoveTowards(animator.transform.position, target, Distance * Time.deltaTime);
-        //animator.transform.position += new Vector3(x, y, 0);
+        direction = (target - animator.transform.position).normalized;
+        if (direction.x < 0) {
+            animator.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else {
+            animator.transform.localScale = new Vector3(1, 1, 1);
+        }
 
         if (Vector2.Distance(playerPosition.position, animator.transform.position) <= chaseDistanceStart) 
        {
