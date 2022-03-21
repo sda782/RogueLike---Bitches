@@ -30,6 +30,7 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Player.Health <= 0) { return; }
         hitDirection.x = Input.GetAxisRaw("Horizontal");
         hitDirection.y = Input.GetAxisRaw("Vertical");
 
