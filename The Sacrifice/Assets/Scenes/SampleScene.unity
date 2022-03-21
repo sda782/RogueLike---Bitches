@@ -30148,11 +30148,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aedd0e5135923f49a6cb4008cafed50, type: 3}
---- !u!1 &293157901 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3130152974153466136, guid: 8aedd0e5135923f49a6cb4008cafed50, type: 3}
-  m_PrefabInstance: {fileID: 293157900}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &312440204
 GameObject:
   m_ObjectHideFlags: 0
@@ -30488,51 +30483,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 358368444}
   m_CullTransparentMesh: 1
---- !u!1 &390909914
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 390909916}
-  - component: {fileID: 390909915}
-  m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &390909915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390909914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27bf906dce7b73d4c94c972f7c33374a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemiesSpawnCount: 5
-  _enemy: {fileID: 293157901}
---- !u!4 &390909916
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390909914}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &417386905
 GameObject:
   m_ObjectHideFlags: 0
@@ -34564,6 +34514,7 @@ MonoBehaviour:
   dungeonHeight: 100
   offset: 3
   randomWalkRooms: 0
+  enemySpawnerPrefab: {fileID: 2945572112109192809, guid: daba4e078ddd8ac449e2e67823c98f55, type: 3}
 --- !u!4 &2030219857
 Transform:
   m_ObjectHideFlags: 0

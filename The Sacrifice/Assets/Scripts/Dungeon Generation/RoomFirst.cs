@@ -18,6 +18,8 @@ public class RoomFirst : SimpleRandomWalkMapGenerator
     [SerializeField]
     private bool randomWalkRooms = false;
     public List<Vector2> RoomList { get; set; }
+
+    public GameObject enemySpawnerPrefab;
     private void Awake()
     {
         RoomList = new List<Vector2>();
@@ -49,6 +51,8 @@ public class RoomFirst : SimpleRandomWalkMapGenerator
         foreach (var room in roomsList)
         {
             Vector2Int pos = (Vector2Int)Vector3Int.RoundToInt(room.center);
+            //Create an enemySpawner in each rooms middle
+            Instantiate(enemySpawnerPrefab,(Vector2)pos, Quaternion.identity);
             roomCenters.Add(pos);
             RoomList.Add((Vector2)pos);
         }

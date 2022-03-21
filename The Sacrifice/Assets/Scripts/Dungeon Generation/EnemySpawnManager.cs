@@ -9,12 +9,10 @@ public class EnemySpawnManager : MonoBehaviour
 {
     [SerializeField]
     private int _enemiesSpawnCount = 5;
-    private bool _stopSpawning = false;
-    private RoomFirst room;
+    //private RoomFirst room;
     [SerializeField]
     private GameObject _enemy;
-    private float randomXPosition = Random.Range(0, 10);
-    private float randomYPosition = Random.Range(10, 0);
+
 
     private void Start()
     {
@@ -22,18 +20,17 @@ public class EnemySpawnManager : MonoBehaviour
     }
     public void SpawnEnemy()
     {
-        RoomFirst rf = GameObject.Find("RoomFirst").GetComponent<RoomFirst>();
-        _enemy.transform.position = rf.RoomList[Random.Range(1, rf.RoomList.Count - 1)];
-        Debug.Log("Test");
-        if (!_stopSpawning)
+        //RoomFirst rf = GameObject.Find("RoomFirst").GetComponent<RoomFirst>();
+        //_enemy.transform.position = rf.RoomList[Random.Range(1, rf.RoomList.Count - 1)];
+
+        for (int i = 0; i < _enemiesSpawnCount; i++)
         {
-            Debug.Log("Before For-Loop");
-            for (int i = 0; i < _enemiesSpawnCount; i++)
-            {
-                Debug.Log("In For-Loop");
-                Vector3 posToSpawn = new Vector3(Random.Range(randomXPosition, randomYPosition ), rf.RoomList.Count+1, 1);
-                GameObject newEnemy = Instantiate(_enemy, posToSpawn, Quaternion.identity);
-            }
+            float randomXPosition = Random.Range(0, 5);
+            float randomYPosition = Random.Range(0, 5);
+            Vector3 randomPos = new Vector3(randomXPosition, randomYPosition, 0);
+            Vector2 spawnLocation = transform.localPosition + randomPos;
+            Instantiate(_enemy, spawnLocation, Quaternion.identity);
         }
+
     }
 }
