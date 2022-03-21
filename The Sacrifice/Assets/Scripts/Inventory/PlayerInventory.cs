@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,6 +31,17 @@ public class PlayerInventory : MonoBehaviour
         panel_showinfo.SetActive(false);
         panel_inventory.SetActive(false);
         playerPos = GameObject.Find("Player").transform;
+    }
+
+    void Start()
+    {
+        if (PlayerStats.KeepInventory.Count != 0)
+        {
+            foreach (var name in PlayerStats.KeepInventory)
+            {
+                addToInventory(name);
+            }
+        }
     }
     public bool addToInventory(string name)
     {
@@ -93,4 +105,11 @@ public class PlayerInventory : MonoBehaviour
         GameObject.Find("InfoSprite").GetComponent<Image>().sprite = i.Sprite;
         currentSelected = obj;
     }
+
+    public bool hasItem(string name)
+    {
+        return bag.Find(i => i.name == name) != null;
+    }
+
+    public List<GameObject> GetBag { get => bag; }
 }

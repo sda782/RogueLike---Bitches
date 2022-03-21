@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -26,9 +27,6 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-        
-        //transform.position = GameObject.Find("RoomFirst").GetComponent<RoomFirst>().PlayerStartPos;
-
     }
 
     void Update()
@@ -68,15 +66,15 @@ public class Movement : MonoBehaviour
 
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        if(lastDirection >= 0)
+        if (lastDirection >= 0)
         {
             sprite.flipX = false;
         }
-        else if(lastDirection < 0)
+        else if (lastDirection < 0)
         {
             sprite.flipX = true;
         }
 
-        
+
     }
 }

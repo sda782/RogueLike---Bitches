@@ -10,6 +10,8 @@ public class Controller : MonoBehaviour
     private List<GameObject> items;
     [SerializeField]
     private Sprite open_chest;
+    [SerializeField]
+    private Sprite open_key_chest;
     void Start()
     {
         items = new List<GameObject>();
@@ -33,6 +35,12 @@ public class Controller : MonoBehaviour
                     i.GetComponent<SpriteRenderer>().sprite = open_chest;
                     i.tag = "Untagged";
                     break;
+                case "keychest":
+                    looty.GenKeyChestLoot(i.transform);
+                    items.Remove(i);
+                    i.GetComponent<SpriteRenderer>().sprite = open_key_chest;
+                    i.tag = "Untagged";
+                    break;
             }
         }
     }
@@ -47,6 +55,9 @@ public class Controller : MonoBehaviour
             case "chest":
                 items.Add(col.gameObject);
                 break;
+            case "keychest":
+                items.Add(col.gameObject);
+                break;
         }
     }
     void OnTriggerExit2D(Collider2D col)
@@ -57,6 +68,9 @@ public class Controller : MonoBehaviour
                 items.Remove(col.gameObject);
                 break;
             case "chest":
+                items.Remove(col.gameObject);
+                break;
+            case "keychest":
                 items.Remove(col.gameObject);
                 break;
         }
