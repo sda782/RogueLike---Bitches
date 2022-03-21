@@ -40,6 +40,7 @@ public class PlayerHeartsManager : MonoBehaviour
 
     public void ShowAllCurrentHearts()
     {
+        if(player.MaxHealth >= ActualMaxHearts) { return; }
         player.Health = player.MaxHealth;
 
         for(int i = 0; i < player.MaxHealth; i++)
