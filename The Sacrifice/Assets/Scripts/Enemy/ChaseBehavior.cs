@@ -9,6 +9,8 @@ public class ChaseBehavior : StateMachineBehaviour
     public float chaseDistanceGiveUp;
     public float attackRange;
     public float speed;
+    private Vector2 direction;
+    //public SpriteRenderer sprite;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -20,7 +22,14 @@ public class ChaseBehavior : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
       if (Vector2.Distance(playerPosition.position, animator.transform.position) >= attackRange-1) {
-       animator.transform.position = Vector2.MoveTowards(animator.transform.position, playerPosition.position, speed * Time.deltaTime);
+        animator.transform.position = Vector2.MoveTowards(animator.transform.position, playerPosition.position, speed * Time.deltaTime);
+        direction = (playerPosition.position - animator.transform.position).normalized;
+        if (direction.x < 0) {
+            animator.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else {
+            animator.transform.localScale = new Vector3(1, 1, 1);
+        }
       }
 
         if (Vector2.Distance(playerPosition.position, animator.transform.position) > chaseDistanceGiveUp) 
