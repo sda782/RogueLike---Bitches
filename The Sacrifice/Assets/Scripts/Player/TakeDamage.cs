@@ -2,19 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using System;
 
 public class TakeDamage : MonoBehaviour
 {
     public Image[] heartImages;
     //public HealthbarBehavior healthbar;
     private Animator animator;
+    private Player player;
 
     private void Awake()
     {
         //healthbar.SetHealth(Player.Health, Player.MaxHealth);
         animator = GetComponent<Animator>();
     }
-
+    private void Start()
+    {
+        player = GetComponent<Player>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -29,14 +34,14 @@ public class TakeDamage : MonoBehaviour
     public void PlayerTakeDamage()
     {
         //Lower health
-        Player.Health -= 1;
+        player.Health -= 1;
         //Play animation
         animator.SetTrigger("TakeDamage");
         //decrease UI healthbar
-        heartImages[Player.Health].enabled = false;
+        heartImages[player.Health].enabled = false;
         //healthbar.SetHealth(Player.Health, Player.MaxHealth);
 
-        if (Player.Health <= 0)
+        if (player.Health <= 0)
         {
             GetComponent<Movement>().enabled = false;
             animator.SetTrigger("Death");

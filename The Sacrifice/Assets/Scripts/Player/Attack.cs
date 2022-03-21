@@ -18,10 +18,12 @@ public class Attack : MonoBehaviour
 
     private bool attackReady = true;
     private float attackCoolDown = 1f;
+    private Player player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GetComponent<Player>();
         lastHitDirection = new Vector2(1, 0);
         attackPoint = GetComponentInChildren<Transform>();
         animator = GetComponent<Animator>();
@@ -30,7 +32,7 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Player.Health <= 0) { return; }
+        if (player.Health <= 0) { return; }
         hitDirection.x = Input.GetAxisRaw("Horizontal");
         hitDirection.y = Input.GetAxisRaw("Vertical");
 
@@ -39,9 +41,9 @@ public class Attack : MonoBehaviour
             lastHitDirection = hitDirection;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(attackReady)
+            if (attackReady)
             {
                 Hit();
             }
@@ -67,7 +69,7 @@ public class Attack : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if(attackPoint == null) { return; }
+        if (attackPoint == null) { return; }
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
