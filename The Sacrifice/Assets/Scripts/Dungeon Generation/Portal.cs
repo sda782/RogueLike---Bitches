@@ -1,17 +1,25 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Portal : MonoBehaviour
 {
     private bool canEnter;
-    private void Start()
+    void Start()
     {
         canEnter = false;
-        InputManager im = GameObject.Find("Canvas").GetComponent<InputManager>();
-        im.Enter.AddListener(EnterPortal);
+        /* GameObject canvas = GameObject.Find("Canvas");
+        InputManager im = canvas.GetComponent<InputManager>();
+        im.Enter = new UnityEvent();
+        im.Enter.AddListener(EnterPortal); */
     }
-    public void EnterPortal()
+    void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E)) EnterPortal();
+    }
+    void EnterPortal()
+    {
+        Debug.Log("Hello");
         if (canEnter)
         {
             PlayerInventory pi = GameObject.Find("InvetoryManager").GetComponent<PlayerInventory>();

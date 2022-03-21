@@ -10,12 +10,12 @@ public class InputManager : MonoBehaviour
     public UnityEvent ToggleInventory;
     [field: SerializeField]
     public UnityEvent PickUpItem;
-    [field: SerializeField]
-    public UnityEvent Enter;
+    /* [field: SerializeField]
+    public UnityEvent Enter; */
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I)) ToggleInventory?.Invoke();
         if (Input.GetKeyDown(KeyCode.F)) PickUpItem?.Invoke();
-        if (Input.GetKeyDown(KeyCode.E)) Enter?.Invoke();
+        //if (Input.GetKeyDown(KeyCode.E)) Enter?.Invoke();
     }
 }

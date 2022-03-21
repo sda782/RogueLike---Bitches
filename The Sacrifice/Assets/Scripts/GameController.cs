@@ -66,6 +66,6 @@ public class GameController : MonoBehaviour
             Debug.Log("You lose");
             PlayerStats.LevelsCleared = 0;
         }
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }
