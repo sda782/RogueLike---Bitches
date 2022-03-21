@@ -6,4 +6,5 @@ public static class PlayerStats
 {
     public static int LevelsCleared { get; set; }
     public static List<string> KeepInventory { get; set; }
+    public static int Currency = 0;
 }

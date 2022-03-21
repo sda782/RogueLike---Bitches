@@ -16,6 +16,6 @@ public class UICurrency : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = $"{Player.Currency.ToString()}";
+        text.text = $"{PlayerStats.Currency.ToString()}";
     }
 }

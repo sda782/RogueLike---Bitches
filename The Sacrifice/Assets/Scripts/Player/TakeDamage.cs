@@ -20,7 +20,7 @@ public class TakeDamage : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            Player.Currency += 1;
+            PlayerStats.Currency += 1;
             PlayerTakeDamage();
         }
     }
