@@ -26,6 +26,7 @@ public class EnemyBehavior : MonoBehaviour
         }
         if (health <= 0) {
             animator.SetBool("isDead", true);
+            healthbar.slider.gameObject.SetActive(false);
         }
     }
 }

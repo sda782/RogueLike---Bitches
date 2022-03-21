@@ -130,7 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c050442485974944d9a85249868a7785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 5448486066542178996}
   health: 5
   healthbar: {fileID: 1614440605809105458}
 --- !u!1 &3264020161375036546
@@ -166,8 +165,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4764629447298581488
 GameObject:
@@ -279,7 +278,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2463624563318739032
 CanvasRenderer:
@@ -302,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5471698, g: 0.10014236, b: 0.10014236, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -355,7 +354,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 20}
+  m_SizeDelta: {x: 48, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5631660010834636174
 MonoBehaviour:
@@ -523,5 +522,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 5631660010834636174}
   offset: {x: 0, y: 0, z: 0}
-  healthColorLow: {r: 0.4716981, g: 0.08187966, b: 0.08187966, a: 0}
-  healthColorHigh: {r: 0.47058824, g: 0.08235294, b: 0.08235294, a: 0}
+  fadeIfFull: 1
+  followEnemy: 1

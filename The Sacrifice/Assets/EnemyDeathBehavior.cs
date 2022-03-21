@@ -13,9 +13,9 @@ public class EnemyDeathBehavior : StateMachineBehaviour
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1) 
+       if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0) 
        {
-           //animator.speed = 0;
+           animator.speed = 0;
        }
     }
 

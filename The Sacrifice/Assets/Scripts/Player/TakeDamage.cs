@@ -6,10 +6,12 @@ using UnityEngine;
 public class TakeDamage : MonoBehaviour
 {
     public Image[] heartImages;
+    //public HealthbarBehavior healthbar;
     private Animator animator;
 
     private void Awake()
     {
+        //healthbar.SetHealth(Player.Health, Player.MaxHealth);
         animator = GetComponent<Animator>();
     }
 
@@ -18,6 +20,7 @@ public class TakeDamage : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
+            Player.Currency += 1;
             PlayerTakeDamage();
         }
     }
@@ -31,6 +34,7 @@ public class TakeDamage : MonoBehaviour
         animator.SetTrigger("TakeDamage");
         //decrease UI healthbar
         heartImages[Player.Health].enabled = false;
+        //healthbar.SetHealth(Player.Health, Player.MaxHealth);
 
         if (Player.Health <= 0)
         {
