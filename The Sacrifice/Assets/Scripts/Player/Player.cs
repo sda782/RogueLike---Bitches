@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class Player : EntityStats
 {
+    public readonly int ActualMaxHearts = 10;
+
     void Start()
     {
         maxHealth = 4;

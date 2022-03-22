@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerHeartsManager : MonoBehaviour
 {
-    private readonly int ActualMaxHearts = 10;
     private Player player;
     public Image[] heartImages;
 
@@ -14,16 +13,6 @@ public class PlayerHeartsManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         OnStart();
     }
-
-    //public void IncreaseMaxHearts()
-    //{
-    //    if(player.MaxHealth < ActualMaxHearts)
-    //    {
-    //        player.MaxHealth++;
-    //        player.Health = player.MaxHealth;
-    //        ShowAllCurrentHearts();
-    //    }
-    //}
 
     public void IncreaseHearts()
     {
@@ -40,7 +29,7 @@ public class PlayerHeartsManager : MonoBehaviour
 
     public void ShowAllCurrentHearts()
     {
-        if(player.MaxHealth >= ActualMaxHearts) { return; }
+        if(player.MaxHealth >= player.ActualMaxHearts) { return; }
         player.Health = player.MaxHealth;
 
         for(int i = 0; i < player.MaxHealth; i++)
@@ -52,7 +41,7 @@ public class PlayerHeartsManager : MonoBehaviour
     //Used to disable the last 6 hearts at the start
     private void OnStart()
     {
-        for(int i = ActualMaxHearts - 1; i >= player.MaxHealth; i--)
+        for(int i = player.ActualMaxHearts - 1; i >= player.MaxHealth; i--)
         {
             heartImages[i].enabled = false;
         }
