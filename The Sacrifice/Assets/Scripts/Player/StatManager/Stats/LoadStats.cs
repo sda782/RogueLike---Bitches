@@ -13,12 +13,12 @@ public class LoadStats : MonoBehaviour
 
     void Start()
     {
-        statName.text = stat.statName;
-        statValue.text = $"{stat.statValue}";
+        statName.text = stat.name;
+        statValue.text = $"{stat.value}";
     }
 
     public void UpdateValues()
     {
-        statValue.text = $"{stat.statValue}";
+        statValue.text = $"{stat.value}";
     }
 }

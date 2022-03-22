@@ -6,14 +6,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "UIStatData", menuName = "Stats/NewStatData")]
 public class UIStatData : ScriptableObject
 {
-    public string statName;
+    public int id;
+    public new string name;
     //public Sprite image;
-    public int statValue;
+    public int value;
 
 
     public void Print()
     {
-        Debug.Log($"{statName}, {statValue}");
+        Debug.Log($"{name}, {value}");
     }
 
     

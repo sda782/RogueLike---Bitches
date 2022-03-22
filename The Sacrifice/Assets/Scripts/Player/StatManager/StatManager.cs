@@ -9,10 +9,7 @@ public class StatManager : MonoBehaviour
     private int pointsSpentThisSession;
     private Player player;
 
-    public LoadStats statsLoad;
-
-    //private Text statValue;
-    //private PlayerHeartsManager heartsUI;
+    public LoadStats[] statsLoad;
 
     //Used to prevent player from decreasing stats beyond points he has put into the current session
     private int healthPoints;
@@ -24,8 +21,7 @@ public class StatManager : MonoBehaviour
     void Start()
     {
         currentPoints = 2;
-        player = GetComponent<Player>();
-        //heartsUI = GetComponent<PlayerHeartsManager>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     public void Confirm()
@@ -44,28 +40,34 @@ public class StatManager : MonoBehaviour
     public void IncreaseStat(UIStatData stat)
     {
         if(currentPoints <= 0) { return; }
-        Debug.Log($"Increase stat {stat.statName}");
+        Debug.Log($"Increase stat {stat.name}");
 
-        switch (stat.statName)
+        int id = stat.id;
+
+        switch (stat.name)
         {
             case "Health":
                 if(player.MaxHealth + healthPoints < player.ActualMaxHearts)
                 {
                     healthPoints++;
-                    stat.statValue = player.MaxHealth + healthPoints;
-                    statsLoad.UpdateValues();
+                    stat.value = player.MaxHealth + healthPoints;
                 }
                 break;
-            case "stamina":
+            case "Stamina":
                 staminaPoints++;
+                stat.value = player.MaxStamina + staminaPoints;
                 break;
-            case "speed":
+            case "Speed":
                 speedPoints++;
+                stat.value = player.Speed + speedPoints;
                 break;
-            case "damage":
+            case "Damage":
                 attackPoints++;
+                stat.value = player.Attack + attackPoints;
                 break;
         }
+
+        statsLoad[id].UpdateValues();
     }
 
     public void DecreaseStat(string stat)
@@ -74,16 +76,16 @@ public class StatManager : MonoBehaviour
 
         switch (stat)
         {
-            case "health":
+            case "Health":
                 if(healthPoints > 0) { healthPoints--; }
                 break;
-            case "stamina":
+            case "Stamina":
                 if (staminaPoints > 0) { staminaPoints--; }
                 break;
-            case "speed":
+            case "Speed":
                 if (speedPoints > 0) { speedPoints--; }
                 break;
-            case "damage":
+            case "Damage":
                 if (attackPoints > 0) { attackPoints--; }
                 break;
         }

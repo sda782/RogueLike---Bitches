@@ -30306,7 +30306,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2119127275}
+      - m_Target: {fileID: 629222826}
         m_TargetAssemblyTypeName: StatManager, Assembly-CSharp
         m_MethodName: DecreaseStat
         m_Mode: 5
@@ -30840,13 +30840,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2119127275}
+      - m_Target: {fileID: 629222826}
         m_TargetAssemblyTypeName: StatManager, Assembly-CSharp
         m_MethodName: IncreaseStat
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 4172dcddabb2c504c9cd3775e21557af, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UIStatData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: speed
@@ -31760,9 +31760,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 629222824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48020a891d8110d4a9472b72ca5045ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 71424f17d629af348a4fb3ac5526ced3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPoints: 0
+  statsLoad:
+  - {fileID: 1680526898}
+  - {fileID: 1875552351}
+  - {fileID: 2033144928}
+  - {fileID: 1454018438}
 --- !u!1 &661329000
 GameObject:
   m_ObjectHideFlags: 0
@@ -31845,6 +31851,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2119127275, guid: d5620c87fb760fd45915c1d386137b03, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119127275, guid: d5620c87fb760fd45915c1d386137b03, type: 3}
+      propertyPath: statsLoad
+      value: 
+      objectReference: {fileID: 1680526898}
     - target: {fileID: 2119127284, guid: d5620c87fb760fd45915c1d386137b03, type: 3}
       propertyPath: heartImages.Array.size
       value: 10
@@ -32461,7 +32475,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2119127275}
+      - m_Target: {fileID: 629222826}
         m_TargetAssemblyTypeName: StatManager, Assembly-CSharp
         m_MethodName: DecreaseStat
         m_Mode: 5
@@ -33519,7 +33533,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2119127275}
+      - m_Target: {fileID: 629222826}
         m_TargetAssemblyTypeName: StatManager, Assembly-CSharp
         m_MethodName: DecreaseStat
         m_Mode: 5
@@ -34495,7 +34509,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2119127275}
+      - m_Target: {fileID: 629222826}
         m_TargetAssemblyTypeName: StatManager, Assembly-CSharp
         m_MethodName: DecreaseStat
         m_Mode: 5
@@ -34778,7 +34792,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2119127275}
+      - m_Target: {fileID: 629222826}
         m_TargetAssemblyTypeName: StatManager, Assembly-CSharp
         m_MethodName: IncreaseStat
         m_Mode: 2
@@ -34911,13 +34925,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2119127275}
+      - m_Target: {fileID: 629222826}
         m_TargetAssemblyTypeName: StatManager, Assembly-CSharp
         m_MethodName: IncreaseStat
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 11762f01d15b38a49b18a9a3976e59da, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UIStatData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: damage
@@ -35345,13 +35359,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2119127275}
+      - m_Target: {fileID: 629222826}
         m_TargetAssemblyTypeName: StatManager, Assembly-CSharp
         m_MethodName: IncreaseStat
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 9a22b8b3355178740a9d107769ba924a, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UIStatData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: stamina
@@ -35404,6 +35418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1454018437}
+  - component: {fileID: 1454018438}
   m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
@@ -35435,6 +35450,21 @@ RectTransform:
   m_AnchoredPosition: {x: -24, y: -561}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1454018438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454018436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9311fdd5c08d49644b54e07f80c86f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: {fileID: 11400000, guid: 11762f01d15b38a49b18a9a3976e59da, type: 2}
+  statName: {fileID: 1591780548}
+  statValue: {fileID: 1205045430}
 --- !u!1 &1477299808
 GameObject:
   m_ObjectHideFlags: 0
@@ -37273,6 +37303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1875552350}
+  - component: {fileID: 1875552351}
   m_Layer: 5
   m_Name: Stamina
   m_TagString: Untagged
@@ -37304,6 +37335,21 @@ RectTransform:
   m_AnchoredPosition: {x: -23.999952, y: -193.99998}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1875552351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875552349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9311fdd5c08d49644b54e07f80c86f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: {fileID: 11400000, guid: 9a22b8b3355178740a9d107769ba924a, type: 2}
+  statName: {fileID: 1798831681}
+  statValue: {fileID: 1207984267}
 --- !u!1 &1904520415
 GameObject:
   m_ObjectHideFlags: 0
@@ -37939,6 +37985,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2033144927}
+  - component: {fileID: 2033144928}
   m_Layer: 5
   m_Name: Speed
   m_TagString: Untagged
@@ -37970,6 +38017,21 @@ RectTransform:
   m_AnchoredPosition: {x: -23.999952, y: -380}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2033144928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033144926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9311fdd5c08d49644b54e07f80c86f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: {fileID: 11400000, guid: 4172dcddabb2c504c9cd3775e21557af, type: 2}
+  statName: {fileID: 1831756109}
+  statValue: {fileID: 700443883}
 --- !u!1001 &2058881062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38301,17 +38363,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83a1c49a1b4106843a71d247c721a17e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2119127275 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2119127275, guid: d5620c87fb760fd45915c1d386137b03, type: 3}
-  m_PrefabInstance: {fileID: 661608887}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119127273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71424f17d629af348a4fb3ac5526ced3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2129783249
