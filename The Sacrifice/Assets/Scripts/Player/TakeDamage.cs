@@ -29,6 +29,12 @@ public class TakeDamage : MonoBehaviour
             //PlayerStats.Currency += 1;
             PlayerTakeDamage();
         }
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            player.Health++;
+            heartUI.IncreaseHearts();
+        }
     }
 
 

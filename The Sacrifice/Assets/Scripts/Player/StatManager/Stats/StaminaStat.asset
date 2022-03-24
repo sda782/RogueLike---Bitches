@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: StaminaStat
   m_EditorClassIdentifier: 
   id: 1
+  image: {fileID: 2686925373666952358, guid: 1161e57b3b269d841b796969309a935e, type: 3}
   name: Stamina
   value: 1

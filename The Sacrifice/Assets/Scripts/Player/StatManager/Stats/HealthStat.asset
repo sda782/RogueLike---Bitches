@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264de706d7fa55642aa950d513db6b42, type: 3}
   m_Name: HealthStat
   m_EditorClassIdentifier: 
+  id: 0
+  image: {fileID: 7707255804581131290, guid: 1161e57b3b269d841b796969309a935e, type: 3}
   name: Health
   value: 3

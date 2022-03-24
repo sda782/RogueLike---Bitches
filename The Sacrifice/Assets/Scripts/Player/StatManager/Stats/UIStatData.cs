@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 
@@ -7,8 +8,8 @@ using UnityEngine;
 public class UIStatData : ScriptableObject
 {
     public int id;
+    public Sprite image;
     public new string name;
-    //public Sprite image;
     public int value;
 
 

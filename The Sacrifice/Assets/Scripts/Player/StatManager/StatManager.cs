@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class StatManager : MonoBehaviour
 {
     public int currentPoints;
+    public Text currentPointsUI;
     private int pointsSpentThisSession;
     private Player player;
 
@@ -40,7 +41,6 @@ public class StatManager : MonoBehaviour
     public void IncreaseStat(UIStatData stat)
     {
         if(currentPoints <= 0) { return; }
-        Debug.Log($"Increase stat {stat.name}");
 
         int id = stat.id;
 
@@ -66,29 +66,37 @@ public class StatManager : MonoBehaviour
                 stat.value = player.Attack + attackPoints;
                 break;
         }
-
+        currentPoints--;
+        pointsSpentThisSession++;
+        currentPointsUI.text = "" + currentPoints;
         statsLoad[id].UpdateValues();
     }
 
-    public void DecreaseStat(string stat)
+    public void DecreaseStat(UIStatData stat)
     {
-        Debug.Log($"Decrease stat {stat}");
+        int id = stat.id;
 
-        switch (stat)
+        switch (stat.name)
         {
             case "Health":
-                if(healthPoints > 0) { healthPoints--; }
+                if(healthPoints > 0) { healthPoints--; currentPoints++; pointsSpentThisSession--; }
+                stat.value = player.MaxHealth + healthPoints;
                 break;
             case "Stamina":
-                if (staminaPoints > 0) { staminaPoints--; }
+                if (staminaPoints > 0) { staminaPoints--; currentPoints++; pointsSpentThisSession--; }
+                stat.value = player.MaxStamina + staminaPoints;
                 break;
             case "Speed":
-                if (speedPoints > 0) { speedPoints--; }
+                if (speedPoints > 0) { speedPoints--; currentPoints++; pointsSpentThisSession--; }
+                stat.value = player.Speed + speedPoints;
                 break;
             case "Damage":
-                if (attackPoints > 0) { attackPoints--; }
+                if (attackPoints > 0) { attackPoints--; currentPoints++; pointsSpentThisSession--; }
+                stat.value = player.Attack + attackPoints;
                 break;
         }
+        currentPointsUI.text = "" + currentPoints;
+        statsLoad[id].UpdateValues();
     }
 
     private void EndSession()

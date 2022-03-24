@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: DamageStat
   m_EditorClassIdentifier: 
   id: 3
+  image: {fileID: 5364509095585310238, guid: 1161e57b3b269d841b796969309a935e, type: 3}
   name: Damage
   value: 1

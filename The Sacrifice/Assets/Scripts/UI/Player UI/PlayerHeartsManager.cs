@@ -16,14 +16,15 @@ public class PlayerHeartsManager : MonoBehaviour
 
     public void IncreaseHearts()
     {
-        if(player.Health < player.MaxHealth)
+        if(player.Health <= player.MaxHealth)
         {
-            heartImages[player.Health].enabled = true;
+            heartImages[player.Health - 1].enabled = true;
         }
     }
 
     public void DecreaseHearts()
     {
+        Debug.Log(player.Health);
         heartImages[player.Health].enabled = false;
     }
 
