@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,14 +20,25 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*         if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    health -= 1;
+                    healthbar.SetHealth(health, healthMax);
+                }
+                if (health <= 0)
+                {
+                    animator.SetBool("isDead", true);
+                    healthbar.slider.gameObject.SetActive(false);
+                } */
+    }
+
+    public void TakeDamage(int v)
+    {
+        health -= v;
+        healthbar.SetHealth(health, healthMax);
+        if (health <= 0)
         {
-            health -= 1;
-            healthbar.SetHealth(health, healthMax);
-        }
-        if (health <= 0) {
-            animator.SetBool("isDead", true);
-            healthbar.slider.gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

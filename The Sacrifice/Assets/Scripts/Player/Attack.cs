@@ -30,7 +30,7 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Player.Health <= 0) { return; }
+        if (Player.Health <= 0) { return; }
         hitDirection.x = Input.GetAxisRaw("Horizontal");
         hitDirection.y = Input.GetAxisRaw("Vertical");
 
@@ -39,9 +39,9 @@ public class Attack : MonoBehaviour
             lastHitDirection = hitDirection;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(attackReady)
+            if (attackReady)
             {
                 Hit();
             }
@@ -61,13 +61,17 @@ public class Attack : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         //Foreach Collider2d enemies (take dmg)
+        foreach (Collider2D col in hitEnemies)
+        {
+            col.GetComponent<EnemyBehavior>().TakeDamage(5);
+        }
 
         StartCoroutine("AttackCoolDown");
     }
 
     private void OnDrawGizmosSelected()
     {
-        if(attackPoint == null) { return; }
+        if (attackPoint == null) { return; }
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
