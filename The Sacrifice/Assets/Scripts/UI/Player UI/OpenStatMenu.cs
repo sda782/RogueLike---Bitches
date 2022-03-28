@@ -13,7 +13,7 @@ public class OpenStatMenu : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        statMenu.SetActive(false);
+        statMenu.SetActive(currentlyActive);
     }
 
     // Update is called once per frame
@@ -21,9 +21,8 @@ public class OpenStatMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            statMenu.SetActive(currentlyActive);
-
             currentlyActive = !currentlyActive;
+            statMenu.SetActive(currentlyActive);
         }
     }
 }
