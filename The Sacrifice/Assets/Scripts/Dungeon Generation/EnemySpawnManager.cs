@@ -25,8 +25,8 @@ public class EnemySpawnManager : MonoBehaviour
 
         for (int i = 0; i < _enemiesSpawnCount; i++)
         {
-            float randomXPosition = Random.Range(0, 5);
-            float randomYPosition = Random.Range(0, 5);
+            float randomXPosition = Random.Range(0, 3);
+            float randomYPosition = Random.Range(0, 3);
             Vector3 randomPos = new Vector3(randomXPosition, randomYPosition, 0);
             Vector2 spawnLocation = transform.localPosition + randomPos;
             Instantiate(_enemy, spawnLocation, Quaternion.identity);
