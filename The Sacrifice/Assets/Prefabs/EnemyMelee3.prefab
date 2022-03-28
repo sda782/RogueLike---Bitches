@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7027015778225041151}
   - component: {fileID: 2605428730323837206}
   - component: {fileID: 3764115525172312616}
+  - component: {fileID: 5270838785431108327}
+  - component: {fileID: 5169449830161344943}
   m_Layer: 6
   m_Name: EnemyMelee3
   m_TagString: Untagged
@@ -132,6 +134,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   healthbar: {fileID: 4359402552387012217}
+--- !u!61 &5270838785431108327
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101499358206139731}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06667566, y: -0.7856146}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6374941, y: 0.31281304}
+  m_EdgeRadius: 0
+--- !u!50 &5169449830161344943
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101499358206139731}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 50
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &528101620676475081
 GameObject:
   m_ObjectHideFlags: 0

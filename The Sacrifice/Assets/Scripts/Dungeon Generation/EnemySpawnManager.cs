@@ -11,7 +11,7 @@ public class EnemySpawnManager : MonoBehaviour
     private int _enemiesSpawnCount = 3;
     //private RoomFirst room;
     [SerializeField]
-    private GameObject _enemy;
+    private GameObject[] _enemy;
 
 
     private void Start()
@@ -30,7 +30,7 @@ public class EnemySpawnManager : MonoBehaviour
             float randomYPosition = Random.Range(0, 3);
             Vector3 randomPos = new Vector3(randomXPosition, randomYPosition, 0);
             Vector2 spawnLocation = transform.localPosition + randomPos;
-            GameObject e = Instantiate(_enemy, spawnLocation, Quaternion.identity);
+            GameObject e = Instantiate(_enemy[Random.Range(0, _enemy.Length)], spawnLocation, Quaternion.identity);
             e.transform.SetParent(GameObject.Find("EnemyContainer").transform);
         }
 
