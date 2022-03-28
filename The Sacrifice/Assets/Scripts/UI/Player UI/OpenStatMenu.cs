@@ -13,7 +13,7 @@ public class OpenStatMenu : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        statMenu.SetActive(currentlyActive);
+        statMenu.SetActive(false);
     }
 
     // Update is called once per frame
