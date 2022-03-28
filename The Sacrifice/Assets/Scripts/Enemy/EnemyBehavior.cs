@@ -21,11 +21,12 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            animator.SetTrigger("TriggerHit");
             health -= 1;
             healthbar.SetHealth(health, healthMax);
         }
         if (health <= 0) {
-            animator.SetBool("isDead", true);
+            animator.SetTrigger("TriggerDeath");
             healthbar.slider.gameObject.SetActive(false);
         }
     }
