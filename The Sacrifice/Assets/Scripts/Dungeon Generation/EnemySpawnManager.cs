@@ -30,7 +30,8 @@ public class EnemySpawnManager : MonoBehaviour
             float randomYPosition = Random.Range(0, 3);
             Vector3 randomPos = new Vector3(randomXPosition, randomYPosition, 0);
             Vector2 spawnLocation = transform.localPosition + randomPos;
-            Instantiate(_enemy, spawnLocation, Quaternion.identity);
+            GameObject e = Instantiate(_enemy, spawnLocation, Quaternion.identity);
+            e.transform.SetParent(GameObject.Find("EnemyContainer").transform);
         }
 
     }

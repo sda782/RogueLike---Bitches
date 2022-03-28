@@ -52,7 +52,8 @@ public class RoomFirst : SimpleRandomWalkMapGenerator
         {
             Vector2Int pos = (Vector2Int)Vector3Int.RoundToInt(room.center);
             //Create an enemySpawner in each rooms middle
-            Instantiate(enemySpawnerPrefab,(Vector2)pos, Quaternion.identity);
+            GameObject es = Instantiate(enemySpawnerPrefab, (Vector2)pos, Quaternion.identity);
+            es.transform.SetParent(GameObject.Find("EnemyContainer").transform);
             roomCenters.Add(pos);
             RoomList.Add((Vector2)pos);
         }
