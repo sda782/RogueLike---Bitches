@@ -14,7 +14,7 @@ public class LootManager : MonoBehaviour
     public void GenChestLoot(Transform pos)
     {
         ///The amount of each type items that will drop, in order of(EQUIPMENT, CONSUMABLE, COINS, MISC)
-        int[] distribution = new int[] { 2, 3, 2, 3 };
+        int[] distribution = new int[] { 2, 3, 6, 3 };
         for (int i = 0; i < distribution.Length; i++)
         {
             for (int j = 0; j < distribution[i]; j++)
@@ -35,6 +35,7 @@ public class LootManager : MonoBehaviour
     private void spawnLoot(int enumIndex, Transform pos)
     {
         ItemType it = (ItemType)enumIndex;
+
         GameObject worldItem = Instantiate(world_item_pre, pos);
 
         List<Item> itemsFromType = ItemManager.GetItemsByType((ItemType)enumIndex);

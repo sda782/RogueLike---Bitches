@@ -1,22 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public static class Player
+public class Player : EntityStats
 {
-    private const int _MaxHealth = 4;
-    private static int _Health = 4;
+    public readonly int ActualMaxHearts = 10;
 
-    public static int MaxHealth
+    void Start()
     {
-        get => _MaxHealth;
+        maxHealth = 3;
+        currentHealth = maxHealth;
+        attack = 1;
+        speed = 1;
+        stamina = 1;
+        atk_speed = 1;
     }
-    public static int Health
+    public override int Health
     {
-        get => _Health;
+        get => currentHealth;
         set
         {
-            if(value > _MaxHealth) { _Health = _MaxHealth; }
-            _Health = value;
+            if (value > maxHealth) { currentHealth = maxHealth; }
+            else
+            {
+                currentHealth = value;
+            }
+        }
+    }
+    public override int MaxHealth
+    {
+        get => maxHealth;
+        set
+        {
+            if (value + maxHealth > ActualMaxHearts) { maxHealth = ActualMaxHearts; }
+            else
+            {
+                maxHealth = value;
+            }
+        }
+    }
+
+    public override int Stamina
+    {
+        get => stamina;
+        set
+        {
+            if (value > maxStamina) { stamina = maxStamina; }
+            else
+            {
+                stamina = value;
+            }
         }
     }
 }

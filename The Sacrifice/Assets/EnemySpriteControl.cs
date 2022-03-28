@@ -19,24 +19,13 @@ public class EnemySpriteControl : MonoBehaviour
     void Update()
     {
         //direction = (target.position - transform.position).normalized;
-        if (animator.GetBool("isChasing") == true)
+/*         if (animator.GetBool("isChasing") == true)
         {
             if (playerCharacter.transform.position.x < this.transform.position.x) {
                 this.spriteRenderer.flipX = true;
             } else if (playerCharacter.transform.position.x > this.transform.position.x) {
                 this.spriteRenderer.flipX = false;
             }
-
-        /* if (playerCharacter.transform.position.x  < this.transform.position.x) {
-            // Flip Sprite on the X Axis
-            transform.localScale = new Vector3 (-1f, 1f, 1f);
-        }
-
-        else if (playerCharacter.transform.position.x > this.transform.position.x) {
-            // Flip Sprite back on the X Axis
-            transform.localScale = new Vector3 (1f, 1f, 1f);
         } */
-
-        }
     }
 }

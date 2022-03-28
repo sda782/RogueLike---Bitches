@@ -40,6 +40,7 @@ MonoBehaviour:
   chaseDistanceGiveUp: 6
   attackRange: 2
   speed: 2
+  sprite: {fileID: 6998338193922199224, guid: 8aedd0e5135923f49a6cb4008cafed50, type: 3}
 --- !u!1101 &-3573807780241318876
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -79,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wanderSpeed: 1
   chaseDistanceStart: 5
+  sprite: {fileID: 6998338193922199224, guid: 8aedd0e5135923f49a6cb4008cafed50, type: 3}
 --- !u!1101 &-2275184829984162168
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -143,25 +145,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isWandering
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isAttacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isDead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
