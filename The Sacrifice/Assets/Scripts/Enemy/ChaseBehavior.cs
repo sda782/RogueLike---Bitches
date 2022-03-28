@@ -38,7 +38,7 @@ public class ChaseBehavior : StateMachineBehaviour
        }
         if (Vector2.Distance(playerPosition.position, animator.transform.position) <= attackRange) 
        {
-           animator.SetBool("isAttacking", true);
+           animator.SetTrigger("TriggerAttack");
        }
 
     }

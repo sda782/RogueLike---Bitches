@@ -15,7 +15,7 @@ public class EnemyDeathBehavior : StateMachineBehaviour
     {
        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0) 
        {
-           animator.speed = 0;
+           //animator.speed = 0;
        }
     }
 
