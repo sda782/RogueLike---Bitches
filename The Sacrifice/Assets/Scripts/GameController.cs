@@ -66,6 +66,7 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("You lose");
             PlayerStats.LevelsCleared = 0;
+            PlayerStats.EnemiesPrRoom = 0;
         }
         SceneManager.LoadScene(0);
     }
