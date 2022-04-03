@@ -68,6 +68,6 @@ public class GameController : MonoBehaviour
             PlayerStats.LevelsCleared = 0;
             PlayerStats.EnemiesPrRoom = 0;
         }
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

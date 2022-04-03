@@ -32,7 +32,7 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Player.Health <= 0) { return; }
+        if (player.Health <= 0) { return; }
         hitDirection.x = Input.GetAxisRaw("Horizontal");
         hitDirection.y = Input.GetAxisRaw("Vertical");
 
@@ -54,7 +54,7 @@ public class Attack : MonoBehaviour
     private void Hit()
     {
         animator.SetTrigger("Attack");
-
+        StartCoroutine("Delay", 0.1f);
         if (hitDirection.x <= 0 && hitDirection.y <= 0)
         {
             hitDirection = lastHitDirection;
@@ -66,9 +66,10 @@ public class Attack : MonoBehaviour
         foreach (Collider2D col in hitEnemies)
         {
             col.GetComponent<EnemyBehavior>().TakeDamage(5);
+            Debug.Log("attack");
         }
 
-        StartCoroutine("AttackCoolDown");
+        StartCoroutine("AttackCoolDown", attackCoolDown);
     }
 
     private void OnDrawGizmosSelected()
@@ -78,10 +79,14 @@ public class Attack : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
-    private IEnumerator AttackCoolDown()
+    private IEnumerator Delay(float toWait)
+    {
+        yield return new WaitForSeconds(toWait);
+    }
+    private IEnumerator AttackCoolDown(float toWait)
     {
         attackReady = false;
-        yield return new WaitForSeconds(attackCoolDown);
+        yield return new WaitForSeconds(toWait);
         attackReady = true;
     }
 }

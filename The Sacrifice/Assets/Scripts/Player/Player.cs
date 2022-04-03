@@ -14,6 +14,10 @@ public class Player : EntityStats
         stamina = 1;
         atk_speed = 1;
     }
+    public void TakeDamage(int dmg)
+    {
+        Health -= dmg;
+    }
     public override int Health
     {
         get => currentHealth;

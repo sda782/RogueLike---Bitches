@@ -9,36 +9,41 @@ public class EnemyBehavior : MonoBehaviour
     public float health;
     private float healthMax;
     public HealthbarBehavior healthbar;
+    private bool attackReady;
+    private TakeDamage playertd;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         healthMax = health;
         healthbar.SetHealth(health, healthMax);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*         if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    health -= 1;
-                    healthbar.SetHealth(health, healthMax);
-                }
-                if (health <= 0)
-                {
-                    animator.SetBool("isDead", true);
-                    healthbar.slider.gameObject.SetActive(false);
-                } */
+        playertd = GameObject.Find("Player").GetComponent<TakeDamage>();
+        attackReady = true;
     }
 
     public void TakeDamage(int v)
     {
         health -= v;
         healthbar.SetHealth(health, healthMax);
-        if (health <= 0) {
+        if (health <= 0)
+        {
             animator.SetTrigger("TriggerDeath");
             healthbar.slider.gameObject.SetActive(false);
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+            Destroy(gameObject.GetComponent<BoxCollider2D>());
         }
+    }
+    public bool Attack()
+    {
+        playertd.PlayerTakeDamage();
+        StartCoroutine("AttackCoolDown", 2);
+        return true;
+    }
+    private IEnumerator AttackCoolDown(float toWait)
+    {
+        attackReady = false;
+        yield return new WaitForSeconds(toWait);
+        attackReady = true;
     }
 }
