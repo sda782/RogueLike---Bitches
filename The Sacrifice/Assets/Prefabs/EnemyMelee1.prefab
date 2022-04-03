@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 5448486066542178996}
   - component: {fileID: 1022395228340813149}
   - component: {fileID: 2172075925568480867}
-  m_Layer: 6
+  - component: {fileID: 2370258466573780701}
+  - component: {fileID: 3284615708128093435}
+  m_Layer: 0
   m_Name: EnemyMelee1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,6 +134,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   healthbar: {fileID: 1614440605809105458}
+--- !u!61 &2370258466573780701
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3130152974153466136}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.020395726, y: -0.75463814}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4091416, y: 0.37650836}
+  m_EdgeRadius: 0
+--- !u!50 &3284615708128093435
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3130152974153466136}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 50
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &3264020161375036546
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7510532626172504554}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +228,7 @@ GameObject:
   - component: {fileID: 1092818585747511936}
   - component: {fileID: 1090583508458439547}
   - component: {fileID: 7431963544646241737}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +303,7 @@ GameObject:
   - component: {fileID: 3410963436201091093}
   - component: {fileID: 2463624563318739032}
   - component: {fileID: 5920891731658057200}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1999047464137484001}
   - component: {fileID: 5631660010834636174}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +469,7 @@ GameObject:
   - component: {fileID: 5091533578540825064}
   - component: {fileID: 1933036927102401728}
   - component: {fileID: 1614440605809105458}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

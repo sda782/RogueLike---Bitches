@@ -46,13 +46,21 @@ public class PlayerInventory : MonoBehaviour
     public bool addToInventory(string name)
     {
         if (bag.Count >= 72) { Debug.Log("Inv full"); return false; }
-        GameObject item = Instantiate(item_pre, bag_container.transform);
         Item i = ItemManager.GetItemByName(name);
-        item.name = "i_" + i.Name;
-        item.GetComponent<Image>().sprite = i.Sprite;
-        bag.Add(item);
-        //SortChildrenItem(bag_container);
-        return true;
+        if (i.ItemType.ToLower() == ItemManager.ItemType.COINS.ToString().ToLower())
+        {
+            PlayerStats.Currency++;
+            return true;
+        }
+        else
+        {
+            GameObject item = Instantiate(item_pre, bag_container.transform);
+            item.name = "i_" + i.Name;
+            item.GetComponent<Image>().sprite = i.Sprite;
+            bag.Add(item);
+            //SortChildrenItem(bag_container);
+            return true;
+        }
     }
 
     public void DropItem()

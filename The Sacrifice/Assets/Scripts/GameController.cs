@@ -56,6 +56,7 @@ public class GameController : MonoBehaviour
         if (didWin)
         {
             Debug.Log("You win");
+            PlayerStats.EnemiesPrRoom++;
             PlayerStats.LevelsCleared++;
             PlayerInventory pi = GameObject.Find("InvetoryManager").GetComponent<PlayerInventory>();
             PlayerStats.KeepInventory = new List<string>();
@@ -65,6 +66,7 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("You lose");
             PlayerStats.LevelsCleared = 0;
+            PlayerStats.EnemiesPrRoom = 0;
         }
         SceneManager.LoadScene(0);
     }

@@ -36,9 +36,9 @@ public class EnemyBehavior : MonoBehaviour
     {
         health -= v;
         healthbar.SetHealth(health, healthMax);
-        if (health <= 0)
-        {
-            Destroy(gameObject);
+        if (health <= 0) {
+            animator.SetTrigger("TriggerDeath");
+            healthbar.slider.gameObject.SetActive(false);
         }
     }
 }

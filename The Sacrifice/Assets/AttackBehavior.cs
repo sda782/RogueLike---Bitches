@@ -14,16 +14,17 @@ public class AttackBehavior : StateMachineBehaviour
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0) 
-       {
-           animator.SetBool("isAttacking", false);
-       }
+    //     if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0) 
+    //    {
+    //        animator.SetBool("isAttacking", false);
+    //    }
     }
 
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       animator.SetBool("isAttacking", false);
+       //animator.SetBool("isAttacking", false);
+       animator.ResetTrigger("TriggerAttack");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

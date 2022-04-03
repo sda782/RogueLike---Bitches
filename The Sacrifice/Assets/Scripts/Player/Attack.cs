@@ -18,10 +18,12 @@ public class Attack : MonoBehaviour
 
     private bool attackReady = true;
     private float attackCoolDown = 1f;
+    private Player player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GetComponent<Player>();
         lastHitDirection = new Vector2(1, 0);
         attackPoint = GetComponentInChildren<Transform>();
         animator = GetComponent<Animator>();
