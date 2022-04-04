@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField]
-    private float speed = 5f;
-    private float sprintSpeed = 10f;
-    private float normalSpeed = 5f;
+    private Player player;
+
+    private float speed = 3f;
 
     [SerializeField]
     private Vector2 movement;
@@ -27,6 +26,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        player = GetComponent<Player>();
     }
 
     void Update()
@@ -42,11 +42,11 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed = sprintSpeed;
+            speed = player.RunSpeed;
         }
         else
         {
-            speed = normalSpeed;
+            speed = player.Speed;
         }
 
         AnimateSprite();
@@ -74,7 +74,5 @@ public class Movement : MonoBehaviour
         {
             sprite.flipX = true;
         }
-
-
     }
 }

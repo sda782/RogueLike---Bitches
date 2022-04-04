@@ -9,6 +9,7 @@ public class StatManager : MonoBehaviour
     public Text currentPointsUI;
     private int pointsSpentThisSession;
     private Player player;
+    public PlayerHeartsManager heartManager;
 
     public LoadStats[] statsLoad;
 
@@ -21,7 +22,7 @@ public class StatManager : MonoBehaviour
 
     void Start()
     {
-        currentPoints = 2;
+        currentPoints = 10;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
@@ -29,9 +30,16 @@ public class StatManager : MonoBehaviour
     {
         if(pointsSpentThisSession > 0)
         {
-            player.MaxHealth += healthPoints;
+            if(healthPoints > 0)
+            {
+                for(int i = 1; i <= healthPoints; i++)
+                {
+                    player.MaxHealth += 1;
+                    heartManager.IncreaseMaxHearts();
+                }
+            }
             player.MaxStamina += staminaPoints;
-            player.Speed += speedPoints;
+            player.RunSpeed += speedPoints;
             player.Attack += attackPoints;
 
             EndSession();
@@ -42,8 +50,6 @@ public class StatManager : MonoBehaviour
     {
         if(currentPoints <= 0) { return; }
 
-        int id = stat.id;
-
         switch (stat.name)
         {
             case "Health":
@@ -51,6 +57,10 @@ public class StatManager : MonoBehaviour
                 {
                     healthPoints++;
                     stat.value = player.MaxHealth + healthPoints;
+                }
+                else if(player.MaxHealth + healthPoints >= player.ActualMaxHearts)
+                {
+                    currentPoints++;
                 }
                 break;
             case "Stamina":
@@ -66,37 +76,44 @@ public class StatManager : MonoBehaviour
                 stat.value = player.Attack + attackPoints;
                 break;
         }
+
         currentPoints--;
         pointsSpentThisSession++;
         currentPointsUI.text = "" + currentPoints;
-        statsLoad[id].UpdateValues();
+        statsLoad[stat.id].statValue.color = Color.magenta;
+        statsLoad[stat.id].UpdateValues();
     }
 
     public void DecreaseStat(UIStatData stat)
     {
-        int id = stat.id;
+        if(pointsSpentThisSession <= 0) { return; }
 
         switch (stat.name)
         {
             case "Health":
                 if(healthPoints > 0) { healthPoints--; currentPoints++; pointsSpentThisSession--; }
+                if (healthPoints == 0) { statsLoad[stat.id].statValue.color = Color.black; }
                 stat.value = player.MaxHealth + healthPoints;
                 break;
             case "Stamina":
                 if (staminaPoints > 0) { staminaPoints--; currentPoints++; pointsSpentThisSession--; }
+                if (staminaPoints == 0) { statsLoad[stat.id].statValue.color = Color.black; }
                 stat.value = player.MaxStamina + staminaPoints;
                 break;
             case "Speed":
                 if (speedPoints > 0) { speedPoints--; currentPoints++; pointsSpentThisSession--; }
+                if (speedPoints == 0) { statsLoad[stat.id].statValue.color = Color.black; }
                 stat.value = player.Speed + speedPoints;
                 break;
             case "Damage":
                 if (attackPoints > 0) { attackPoints--; currentPoints++; pointsSpentThisSession--; }
+                if (attackPoints == 0) { statsLoad[stat.id].statValue.color = Color.black; }
                 stat.value = player.Attack + attackPoints;
                 break;
         }
+        
         currentPointsUI.text = "" + currentPoints;
-        statsLoad[id].UpdateValues();
+        statsLoad[stat.id].UpdateValues();
     }
 
     private void EndSession()

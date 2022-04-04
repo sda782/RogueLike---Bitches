@@ -11,7 +11,6 @@ public class LoadStats : MonoBehaviour
     public Text statName;
     public Text statValue;
 
-
     void Start()
     {
         statImage.sprite = stat.image;

@@ -54,7 +54,7 @@ public class Attack : MonoBehaviour
     private void Hit()
     {
         animator.SetTrigger("Attack");
-
+        StartCoroutine("Delay", 0.1f);
         if (hitDirection.x <= 0 && hitDirection.y <= 0)
         {
             hitDirection = lastHitDirection;
@@ -63,8 +63,13 @@ public class Attack : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         //Foreach Collider2d enemies (take dmg)
+        foreach (Collider2D col in hitEnemies)
+        {
+            col.GetComponent<EnemyBehavior>().TakeDamage(5);
+            Debug.Log("attack");
+        }
 
-        StartCoroutine("AttackCoolDown");
+        StartCoroutine("AttackCoolDown", attackCoolDown);
     }
 
     private void OnDrawGizmosSelected()
@@ -74,10 +79,14 @@ public class Attack : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
-    private IEnumerator AttackCoolDown()
+    private IEnumerator Delay(float toWait)
+    {
+        yield return new WaitForSeconds(toWait);
+    }
+    private IEnumerator AttackCoolDown(float toWait)
     {
         attackReady = false;
-        yield return new WaitForSeconds(attackCoolDown);
+        yield return new WaitForSeconds(toWait);
         attackReady = true;
     }
 }
