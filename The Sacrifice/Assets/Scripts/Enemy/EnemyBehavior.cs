@@ -11,6 +11,7 @@ public class EnemyBehavior : MonoBehaviour
     public HealthbarBehavior healthbar;
     private bool attackReady;
     private TakeDamage playertd;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,8 @@ public class EnemyBehavior : MonoBehaviour
         animator = GetComponent<Animator>();
         healthMax = health;
         healthbar.SetHealth(health, healthMax);
-        playertd = GameObject.Find("Player").GetComponent<TakeDamage>();
+        player = GameObject.Find("Player");
+        playertd = player.GetComponent<TakeDamage>();
         attackReady = true;
     }
 
@@ -34,11 +36,13 @@ public class EnemyBehavior : MonoBehaviour
             Destroy(gameObject.GetComponent<BoxCollider2D>());
         }
     }
-    public bool Attack()
+    public void Attack()
     {
-        playertd.PlayerTakeDamage();
-        StartCoroutine("AttackCoolDown", 2);
-        return true;
+        if (Vector2.Distance(transform.position, player.transform.position) <= 1)
+        {
+            playertd.PlayerTakeDamage();
+            StartCoroutine("AttackCoolDown", 2);
+        }
     }
     private IEnumerator AttackCoolDown(float toWait)
     {
