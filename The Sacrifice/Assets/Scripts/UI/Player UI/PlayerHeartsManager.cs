@@ -14,18 +14,23 @@ public class PlayerHeartsManager : MonoBehaviour
         OnStart();
     }
 
+    public void IncreaseMaxHearts()
+    {
+        heartImages[player.MaxHealth - 1].enabled = true;
+        heartImages[player.MaxHealth - 1].color = Color.gray;
+    }
+
     public void IncreaseHearts()
     {
         if(player.Health <= player.MaxHealth)
         {
-            heartImages[player.Health - 1].enabled = true;
+            heartImages[player.Health - 1].color = Color.white;
         }
     }
 
     public void DecreaseHearts()
     {
-        Debug.Log(player.Health);
-        heartImages[player.Health].enabled = false;
+        heartImages[player.Health].color = Color.gray;
     }
 
     public void ShowAllCurrentHearts()
