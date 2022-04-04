@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 4933781403379010080}
   - component: {fileID: 1279157215547301623}
   - component: {fileID: 5306011309160919334}
+  - component: {fileID: 4902024094547963699}
   m_Layer: 6
   m_Name: NpcMerchant
   m_TagString: NpcMerchant
@@ -171,6 +172,33 @@ MonoBehaviour:
   panel: {fileID: 6680828751092845875}
   offset: {x: 0, y: 1, z: 0}
   player: {fileID: 0}
+  stats: {fileID: 0}
+--- !u!61 &4902024094547963699
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2635785238838524300}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.022510529, y: -0.72226524}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6782303, y: 0.4408884}
+  m_EdgeRadius: 0
 --- !u!1 &4741051930840631469
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,6 +26,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public void TakeDamage(int v)
     {
+        animator.SetTrigger("TriggerHit");
         health -= v;
         healthbar.SetHealth(health, healthMax);
         if (health <= 0)
@@ -33,7 +34,8 @@ public class EnemyBehavior : MonoBehaviour
             animator.SetTrigger("TriggerDeath");
             healthbar.slider.gameObject.SetActive(false);
             LootManager lm = GameObject.Find("LootContainer").GetComponent<LootManager>();
-            switch(gameObject.tag) {
+            switch (gameObject.tag)
+            {
                 case "EnemyMelee1": lm.GenEnemy1Loot(transform); break;
                 case "EnemyMelee2": lm.GenEnemy2Loot(transform); break;
                 case "EnemyMelee3": lm.GenEnemy3Loot(transform); break;

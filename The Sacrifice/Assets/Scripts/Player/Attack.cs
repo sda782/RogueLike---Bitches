@@ -65,7 +65,7 @@ public class Attack : MonoBehaviour
         //Foreach Collider2d enemies (take dmg)
         foreach (Collider2D col in hitEnemies)
         {
-            col.GetComponent<EnemyBehavior>().TakeDamage(5);
+            col.GetComponent<EnemyBehavior>().TakeDamage(3);
             Debug.Log("attack");
         }
 
