@@ -8,6 +8,10 @@ TagManager:
   - Chest
   - Portal
   - KeyChest
+  - EnemyMelee1
+  - EnemyMelee2
+  - EnemyMelee3
+  - NpcMerchant
   layers:
   - Default
   - TransparentFX
