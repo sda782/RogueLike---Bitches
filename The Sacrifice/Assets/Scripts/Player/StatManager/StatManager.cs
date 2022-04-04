@@ -86,6 +86,8 @@ public class StatManager : MonoBehaviour
 
     public void DecreaseStat(UIStatData stat)
     {
+        if(pointsSpentThisSession <= 0) { return; }
+
         switch (stat.name)
         {
             case "Health":
