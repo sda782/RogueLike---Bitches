@@ -30213,6 +30213,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289393608}
   m_CullTransparentMesh: 1
+--- !u!1 &299901274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8096423990289848874, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+  m_PrefabInstance: {fileID: 1317418600}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &299901280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299901274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8574f33951b514c9cfe7238d30c51e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelPos: {fileID: 2023025994}
+  panel: {fileID: 2023025991}
+  offset: {x: 1.75, y: 1, z: 0}
 --- !u!1 &310644377
 GameObject:
   m_ObjectHideFlags: 0
@@ -34951,6 +34971,89 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280773396}
   m_CullTransparentMesh: 1
+--- !u!1001 &1317418600
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1018614023438031161, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_text
+      value: Hello dog. I can grant you extra power for just 3 coins. (Press E to
+        accept)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018614023438031161, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018614023438031161, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356108361451198593, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635785238838524300, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_Name
+      value: NpcMerchant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5898452538589324666, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5898452538589324666, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: timeBtwChars
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5306011309160919334, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
 --- !u!1 &1321491075
 GameObject:
   m_ObjectHideFlags: 0
@@ -38839,6 +38942,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022988425}
   m_CullTransparentMesh: 1
+--- !u!1 &2023025991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6680828751092845875, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+  m_PrefabInstance: {fileID: 1317418600}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2023025994 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5416396266185414421, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+  m_PrefabInstance: {fileID: 1317418600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2030219855
 GameObject:
   m_ObjectHideFlags: 0

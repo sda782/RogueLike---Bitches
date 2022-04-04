@@ -12563,6 +12563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1221882123}
+  npc: {fileID: 1549231892}
   portal_pre: {fileID: 4511342044436892576, guid: 194067f5ac82c094ba0a641c497e7335, type: 3}
   chest_pre: {fileID: 6000955801706334312, guid: 3f2b3139b7cb62d498a5e34a3cc23344, type: 3}
   keyChestSprite: {fileID: 3520753614568390888, guid: 4a33f65582ecf1248a49c0a6df394237, type: 3}
@@ -14428,11 +14429,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.8
+      value: 1.42
       objectReference: {fileID: 0}
     - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.9
+      value: 1.42
       objectReference: {fileID: 0}
     - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36092,6 +36093,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2119127275, guid: d5620c87fb760fd45915c1d386137b03, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d5620c87fb760fd45915c1d386137b03, type: 3}
+--- !u!1 &1549231892 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2635785238838524300, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+  m_PrefabInstance: {fileID: 1020211143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1559675473
 GameObject:
   m_ObjectHideFlags: 0

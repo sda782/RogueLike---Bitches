@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject player;
     [SerializeField]
+    private GameObject npc;
+    [SerializeField]
     private GameObject portal_pre;
     [SerializeField]
     private GameObject chest_pre;
@@ -31,6 +33,9 @@ public class GameController : MonoBehaviour
         GameObject portal = Instantiate(portal_pre);
         portal.transform.position = rf.RoomList.LastOrDefault();
         player.transform.position = rf.RoomList.FirstOrDefault();
+        if (PlayerStats.LevelsCleared != 1){
+            npc.transform.position = rf.RoomList.FirstOrDefault() + new Vector2(0, 2);
+        }
         bool setKeyChest = false;
         for (int i = 1; i < rf.RoomList.Count - 1; i++)
         {
