@@ -19318,6 +19318,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &53864270 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2635785238838524300, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+  m_PrefabInstance: {fileID: 1317418600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &70455430
 GameObject:
   m_ObjectHideFlags: 0
@@ -30369,6 +30374,8 @@ MonoBehaviour:
   panelPos: {fileID: 2023025994}
   panel: {fileID: 2023025991}
   offset: {x: 1.75, y: 1, z: 0}
+  player: {fileID: 2119127285}
+  stats: {fileID: 629222826}
 --- !u!1 &310644377
 GameObject:
   m_ObjectHideFlags: 0
@@ -31478,6 +31485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2119127273}
+  npc: {fileID: 53864270}
   portal_pre: {fileID: 4511342044436892576, guid: 194067f5ac82c094ba0a641c497e7335, type: 3}
   chest_pre: {fileID: 6000955801706334312, guid: 3f2b3139b7cb62d498a5e34a3cc23344, type: 3}
   keyChestSprite: {fileID: 3520753614568390888, guid: 4a33f65582ecf1248a49c0a6df394237, type: 3}
@@ -32137,6 +32145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPoints: 0
   currentPointsUI: {fileID: 428685993}
+  heartManager: {fileID: 2119127276}
   statsLoad:
   - {fileID: 1680526898}
   - {fileID: 1875552351}
@@ -35023,6 +35032,10 @@ PrefabInstance:
       propertyPath: timeBtwChars
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 5898452538589324666, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: delayBeforeStart
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -35066,6 +35079,10 @@ PrefabInstance:
     - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997177686725555756, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5306011309160919334, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
@@ -38908,7 +38925,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1994292202
 GameObject:
@@ -39464,6 +39481,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a1c49a1b4106843a71d247c721a17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2119127276 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2119127284, guid: d5620c87fb760fd45915c1d386137b03, type: 3}
+  m_PrefabInstance: {fileID: 661608887}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119127273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a5bd60714a36b40a82f08ae99bd877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2119127285 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7448851115468845504, guid: d5620c87fb760fd45915c1d386137b03, type: 3}
+  m_PrefabInstance: {fileID: 661608887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2129783249
 GameObject:
   m_ObjectHideFlags: 0

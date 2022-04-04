@@ -12530,6 +12530,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492702249}
   m_CullTransparentMesh: 1
+--- !u!1 &500810409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6680828751092845875, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+  m_PrefabInstance: {fileID: 1020211143}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &500810412 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5416396266185414421, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+  m_PrefabInstance: {fileID: 1020211143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &517886285
 GameObject:
   m_ObjectHideFlags: 0
@@ -14423,6 +14433,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: NpcMerchant
       objectReference: {fileID: 0}
+    - target: {fileID: 5306011309160919334, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1221882135}
+    - target: {fileID: 5306011309160919334, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: offset.x
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5898452538589324666, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+      propertyPath: timeBtwChars
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7344298802153524125, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -14467,7 +14489,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5306011309160919334, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
 --- !u!1 &1024929141
 GameObject:
@@ -15089,6 +15112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a1c49a1b4106843a71d247c721a17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1221882135 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7448851115468845504, guid: d5620c87fb760fd45915c1d386137b03, type: 3}
+  m_PrefabInstance: {fileID: 1533527836}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1231288610
 GameObject:
   m_ObjectHideFlags: 0
@@ -35955,6 +35983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPoints: 0
   currentPointsUI: {fileID: 1514760043}
+  heartManager: {fileID: 0}
   statsLoad:
   - {fileID: 1359539180}
   - {fileID: 111569925}
@@ -39142,6 +39171,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096171229}
   m_CullTransparentMesh: 1
+--- !u!1 &2107018812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8096423990289848874, guid: 5ba96afa87dce2f4e96ff73a95882324, type: 3}
+  m_PrefabInstance: {fileID: 1020211143}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2107018818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107018812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8574f33951b514c9cfe7238d30c51e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelPos: {fileID: 500810412}
+  panel: {fileID: 500810409}
+  offset: {x: 1.75, y: 1, z: 0}
+  player: {fileID: 1221882135}
 --- !u!1 &2108694648
 GameObject:
   m_ObjectHideFlags: 0
