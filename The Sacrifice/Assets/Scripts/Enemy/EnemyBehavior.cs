@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
@@ -12,7 +13,6 @@ public class EnemyBehavior : MonoBehaviour
     private bool attackReady;
     private TakeDamage playertd;
     private GameObject player;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +32,13 @@ public class EnemyBehavior : MonoBehaviour
         {
             animator.SetTrigger("TriggerDeath");
             healthbar.slider.gameObject.SetActive(false);
+            LootManager lm = GameObject.Find("LootContainer").GetComponent<LootManager>();
+            switch(gameObject.tag) {
+                case "EnemyMelee1": lm.GenEnemy1Loot(transform); break;
+                case "EnemyMelee2": lm.GenEnemy2Loot(transform); break;
+                case "EnemyMelee3": lm.GenEnemy3Loot(transform); break;
+                case "NpcMerchant": lm.GenNpcMerchantLoot(transform); break;
+            }
             Destroy(gameObject.GetComponent<Rigidbody2D>());
             Destroy(gameObject.GetComponent<BoxCollider2D>());
         }

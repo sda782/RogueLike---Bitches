@@ -23,6 +23,54 @@ public class LootManager : MonoBehaviour
             }
         }
     }
+    public void GenEnemy1Loot(Transform pos)
+    {
+        ///The amount of each type items that will drop, in order of(EQUIPMENT, CONSUMABLE, COINS, MISC)
+        int[] distribution = new int[] { 0, 1, 1, 0 };
+        for (int i = 0; i < distribution.Length; i++)
+        {
+            for (int j = 0; j < distribution[i]; j++)
+            {
+                spawnLoot(i, pos);
+            }
+        }
+    }
+    public void GenEnemy2Loot(Transform pos)
+    {
+        ///The amount of each type items that will drop, in order of(EQUIPMENT, CONSUMABLE, COINS, MISC)
+        int[] distribution = new int[] { 0, 0, 1, 1 };
+        for (int i = 0; i < distribution.Length; i++)
+        {
+            for (int j = 0; j < distribution[i]; j++)
+            {
+                spawnLoot(i, pos);
+            }
+        }
+    }
+    public void GenEnemy3Loot(Transform pos)
+    {
+        ///The amount of each type items that will drop, in order of(EQUIPMENT, CONSUMABLE, COINS, MISC)
+        int[] distribution = new int[] { 1, 0, 1, 0 };
+        for (int i = 0; i < distribution.Length; i++)
+        {
+            for (int j = 0; j < distribution[i]; j++)
+            {
+                spawnLoot(i, pos);
+            }
+        }
+    }
+    public void GenNpcMerchantLoot(Transform pos)
+    {
+        ///The amount of each type items that will drop, in order of(EQUIPMENT, CONSUMABLE, COINS, MISC)
+        int[] distribution = new int[] { 0, 1, 4, 1 };
+        for (int i = 0; i < distribution.Length; i++)
+        {
+            for (int j = 0; j < distribution[i]; j++)
+            {
+                spawnLoot(i, pos);
+            }
+        }
+    }
     public void GenKeyChestLoot(Transform pos)
     {
         GameObject worldItem = Instantiate(world_item_pre, pos);
